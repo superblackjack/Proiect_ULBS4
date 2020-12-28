@@ -2,5 +2,5 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:pageTemplate pageTitle="eJobs">
-    <h1> abcdfedasdsa </h1>
+    <h1>Ceva</h1>
 </t:pageTemplate>
