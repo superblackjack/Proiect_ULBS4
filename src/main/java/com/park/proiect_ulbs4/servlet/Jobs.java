@@ -6,6 +6,7 @@
 package com.park.proiect_ulbs4.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Elix
+ * @author Sebi
  */
-@WebServlet(name = "Users", urlPatterns = {"/Users"})
-public class Users extends HttpServlet {
+@WebServlet(name = "Jobs", urlPatterns = {"/Jobs"})
+public class Jobs extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request, response);
+         request.getRequestDispatcher("/WEB-INF/pages/jobs.jsp").forward(request, response);
     }
 
     @Override

@@ -6,85 +6,64 @@
 package com.park.proiect_ulbs4.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  *
- * @author Elix
+ * @author Sebi
  */
 @Entity
-@Table(name="USERS")
-public class User implements Serializable {
+@Table(name = "JOBS")
+public class Job implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Integer id;
-
-    private String nume;
-
-    private String prenume;
-
-    private String email;
-
-    private String password;
-    
-    @OneToMany(mappedBy = "user")
-    private Collection<Job> jobs;
-
-    public Collection<Job> getJobs() {
-        return jobs;
-    }
-
-    public void setJobs(Collection<Job> jobs) {
-        this.jobs = jobs;
-    }
+    private String post;
+    private String descriere;
 
     public Integer getId() {
         return id;
     }
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_KEY")
+    private User user;
 
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    public String getDescriere() {
+        return descriere;
+    }
+
+    public void setDescriere(String descriere) {
+        this.descriere = descriere;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getNume() {
-        return nume;
-    }
-
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
-    public String getPrenume() {
-        return prenume;
-    }
-
-    public void setPrenume(String prenume) {
-        this.prenume = prenume;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override
@@ -97,10 +76,10 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
+        if (!(object instanceof Job)) {
             return false;
         }
-        User other = (User) object;
+        Job other = (Job) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -109,7 +88,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "com.park.proiect_ulbs4.entity.User[ id=" + id + " ]";
+        return "com.park.proiect_ulbs4.entity.Job[ id=" + id + " ]";
     }
-
+    
 }
