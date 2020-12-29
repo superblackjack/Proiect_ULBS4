@@ -15,6 +15,7 @@
             <div class="col-md-4 ">${user.nume}</div>
             <div class="col-md-4 ">${user.prenume}</div>
             <div class="col-md-3 ">${user.email}</div>
+            <div class="col-md-3 ">${user.position}</div>
         </div>
     </c:forEach>
 </t:pageTemplate>

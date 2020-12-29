@@ -27,8 +27,24 @@ public class UserBean {
 
    private static final Logger LOG = Logger.getLogger(UserBean.class.getName());
 
+   
     @PersistenceContext
     private EntityManager em;
+    
+    public void createUser(String nume, String prenume, String email,String passwordSha256, String position) {
+    
+        //LOG.info("createUser");
+        
+        User user = new User();
+        user.setNume(nume);
+        user.setPrenume(prenume);
+        user.setEmail(email);
+        user.setPosition(position);
+        user.setPassword(passwordSha256);
+      
+        
+       em.persist(user);
+    }
     
     public List<UserDetails> getAllUsers() {
         LOG.info("getAllUsers");
@@ -46,6 +62,7 @@ public class UserBean {
             UserDetails UserDetails = new UserDetails(user.getId(),
                     user.getNume(),
                     user.getPrenume(),
+                    user.getPosition(),
                     user.getEmail());
             detailsList.add(UserDetails);
         }

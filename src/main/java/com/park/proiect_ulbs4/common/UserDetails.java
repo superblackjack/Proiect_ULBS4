@@ -14,12 +14,14 @@ public class UserDetails {
     private String nume;
     private String prenume;
     private String email;
+    private String position;
 
-    public UserDetails(Integer id, String nume, String prenume, String email) {
+    public UserDetails(Integer id, String nume, String prenume, String email, String position) {
         this.id = id;
         this.nume = nume;
         this.prenume = prenume;
         this.email = email;
+        this.position=position;
     }
 
     public Integer getId() {
@@ -37,6 +39,11 @@ public class UserDetails {
     public String getEmail() {
         return email;
     }
+    
+     public String getPosition() {
+        return position;
+    }
+    
     
     
 }
