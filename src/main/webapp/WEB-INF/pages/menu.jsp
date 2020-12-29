@@ -13,10 +13,22 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ${activePage eq 'Users' ? ' active' : ''}">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/Users">Users</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/Users">Users</a>
                 </li>
                 <li class="nav-item ${activePage eq 'Jobs' ? ' active' : ''}">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/Jobs">Jobs</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/Jobs">Jobs</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <c:choose>
+                    <c:when test = "${pageContext.request.getRemoteUser() == null}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/Login">Login</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/Logout">Logout</a>
+                    </c:otherwise>
+                </c:choose>
                 </li>
             </ul>
         </div>
