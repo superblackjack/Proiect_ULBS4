@@ -10,7 +10,10 @@
 
 <t:pageTemplate pageTitle="Jobs">
     <h1> Lista cu joburi </h1>
-    <c:forEach var="job" items="${jobs}" varStatus="status">
+    <form method="POST" action="${pageContext.request.contextPath}/Jobs">
+        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/addJobs" role="button">Add Jobs</a>
+
+        <c:forEach var="job" items="${jobs}" varStatus="status">
             <div class="row">
                 <div class="col-md-3 ">
                     ${job.post}
@@ -23,4 +26,5 @@
                 </div>
             </div>
         </c:forEach>
+    </form>
 </t:pageTemplate>

@@ -20,7 +20,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author Asus
+ * @author Gabi
  */
 @Stateless
 public class UserBean {

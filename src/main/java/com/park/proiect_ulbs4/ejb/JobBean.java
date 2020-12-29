@@ -7,6 +7,7 @@ package com.park.proiect_ulbs4.ejb;
 
 import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.entity.Job;
+import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -18,7 +19,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author Asus
+ * @author Gabi
  */
 @Stateless
 public class JobBean {
@@ -49,4 +50,20 @@ public class JobBean {
         }
         return detailsList;
     }
+    
+    public void createJob(String post, String descriere, Integer userId){
+    LOG.info("createJob");
+    Job job = new Job();
+    job.setPost(post);
+    job.setDescriere(descriere);
+    
+    User user = em.find(User.class, userId);
+    user.getJobs().add(job);
+    job.setUser(user);
+    
+    em.persist(job);
+    
+    }
+    
+    
 }
