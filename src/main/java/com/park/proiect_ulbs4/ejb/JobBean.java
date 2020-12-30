@@ -9,6 +9,7 @@ import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.entity.Job;
 import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.EJBException;
@@ -63,6 +64,14 @@ public class JobBean {
     
     em.persist(job);
     
+    }
+    
+    public void deleteJobsByIds(Collection<Integer> ids){
+    LOG.info("deleteJobsByIds");
+    for(Integer id:ids){
+        Job job = em.find(Job.class, id);
+        em.remove(job);
+    }
     }
     
     
