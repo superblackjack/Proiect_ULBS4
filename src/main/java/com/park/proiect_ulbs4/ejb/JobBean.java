@@ -28,6 +28,11 @@ public class JobBean {
 
     @PersistenceContext
     private EntityManager em;
+    
+    public JobDetails findByID(Integer jobId){
+        Job job = em.find(Job.class, jobId);
+        return new JobDetails(job.getId(),job.getPost(),job.getDescriere(),job.getUser().getEmail());
+    }
 
     public List<JobDetails> getAllJobs() {
         LOG.info("getAllJobs");
@@ -63,6 +68,23 @@ public class JobBean {
     
     em.persist(job);
     
+    }
+
+    public void updateJob(Integer jobId, String post, String descriere, Integer userId) {
+       LOG.info("updateJob");
+
+        Job job = em.find(Job.class, jobId);
+        job.setPost(post);
+        job.setDescriere(descriere);
+
+        //remove this car from teh old qwner
+        User oldUser = job.getUser();
+        oldUser.getJobs().remove(job);
+
+        //add the car to its new user
+        User user = em.find(User.class, userId);
+        user.getJobs().add(job);
+        job.setUser(user);
     }
     
     

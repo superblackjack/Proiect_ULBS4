@@ -24,6 +24,9 @@
                 <div class="col-md-2 ">
                     ${job.email}
                 </div>
+                <div class="col-md-2 ">
+                    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/EditJob?id=${job.id}" role="button">Edit Job</a>
+                </div>
             </div>
         </c:forEach>
     </form>
