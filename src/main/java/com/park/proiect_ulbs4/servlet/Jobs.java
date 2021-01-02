@@ -8,6 +8,7 @@ package com.park.proiect_ulbs4.servlet;
 import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.ejb.JobBean;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.security.DeclareRoles;
 import javax.inject.Inject;
@@ -53,6 +54,16 @@ public class Jobs extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String[] jobIdsAsString = request.getParameterValues("job_ids");
+        if (jobIdsAsString != null) {
+            List<Integer> jobIds = new ArrayList<>();
+            for (String jobIdAsString : jobIdsAsString) {
+                jobIds.add(Integer.parseInt(jobIdAsString));
+            }
+            jobBean.deleteJobsByIds(jobIds);
+        }
+        response.sendRedirect(request.getContextPath() + "/Jobs");
     }
 
     @Override

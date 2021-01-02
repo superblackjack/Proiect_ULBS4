@@ -10,17 +10,25 @@
 
 <t:pageTemplate pageTitle="Jobs">
     <h1> Lista cu joburi </h1>
-    <c:forEach var="job" items="${jobs}" varStatus="status">
-        <div class="row">
-            <div class="col-md-3 ">
-                ${job.post}
+    <form method="POST" action="${pageContext.request.contextPath}/Jobs">
+        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/addJobs" role="button">Add Jobs</a>
+        <button class="btn btn-danger btn-lg" type="submit"> Delete Jobs</button>
+        <c:forEach var="job" items="${jobs}" varStatus="status">
+
+            <div class="row">
+                <div class="col-md">
+                    <input type="checkbox" name="job_ids" value="${job.id}" />
+                </div>
+                <div class="col-md-3 ">
+                    ${job.post}
+                </div>
+                <div class="col-md-3 ">
+                    ${job.descriere}
+                </div>
+                <div class="col-md-2 ">
+                    ${job.email}
+                </div>
             </div>
-            <div class="col-md-3 ">
-                ${job.descriere}
-            </div>
-            <div class="col-md-2 ">
-                ${job.email}
-            </div>
-        </div>
-    </c:forEach>
+        </c:forEach>
+    </form>
 </t:pageTemplate>
