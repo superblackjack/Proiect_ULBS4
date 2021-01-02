@@ -18,7 +18,7 @@
         <!--<img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
         <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
         <label for="email" class="sr-only">Email</label>
-        <input type="text" id="email" name="j_email" class="form-control" placeholder="Email" required autofocus>
+        <input type="text" id="email" name="j_username" class="form-control" placeholder="Email" required autofocus>
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required>
         <!--<div class="checkbox mb-3">

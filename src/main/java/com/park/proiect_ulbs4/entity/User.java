@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author Elix
  */
 @Entity
-@Table(name="USERS")
+@Table(name = "USERS")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,31 +36,12 @@ public class User implements Serializable {
     private String email;
 
     private String password;
-    
+
     private String position;
-    
-   
-    
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-    
     @JsonbTransient
     @OneToMany(mappedBy = "user")
     private Collection<Job> jobs;
-
-    public Collection<Job> getJobs() {
-        return jobs;
-    }
-
-    public void setJobs(Collection<Job> jobs) {
-        this.jobs = jobs;
-    }
 
     public Integer getId() {
         return id;
@@ -102,6 +83,22 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+    
+    public Collection<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(Collection<Job> jobs) {
+        this.jobs = jobs;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

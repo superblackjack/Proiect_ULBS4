@@ -12,8 +12,8 @@
     <h1>Users</h1>
     <c:forEach var="user" items="${users}" varStatus="status">
         <div class="row">
-            <div class="col-md-4 ">${user.nume}</div>
-            <div class="col-md-4 ">${user.prenume}</div>
+            <div class="col-md-2 ">${user.nume}</div>
+            <div class="col-md-2 ">${user.prenume}</div>
             <div class="col-md-3 ">${user.email}</div>
             <div class="col-md-3 ">${user.position}</div>
         </div>
