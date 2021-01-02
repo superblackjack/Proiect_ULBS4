@@ -25,37 +25,35 @@ import javax.persistence.Query;
 @Stateless
 public class UserBean {
 
-   private static final Logger LOG = Logger.getLogger(UserBean.class.getName());
+    private static final Logger LOG = Logger.getLogger(UserBean.class.getName());
 
-   
     @PersistenceContext
     private EntityManager em;
-    
-    public void createUser(String nume, String prenume, String email,String passwordSha256, String position) {
-    
+
+    public void createUser(String nume, String prenume, String email, String passwordSha256, String position) {
+
         //LOG.info("createUser");
-        
         User user = new User();
         user.setNume(nume);
         user.setPrenume(prenume);
         user.setEmail(email);
         user.setPosition(position);
         user.setPassword(passwordSha256);
-      
-        
-       em.persist(user);
+
+        em.persist(user);
     }
-    
+
     public List<UserDetails> getAllUsers() {
         LOG.info("getAllUsers");
         try {
-            Query query=em.createQuery("SELECT u FROM User u");
+            Query query = em.createQuery("SELECT u FROM User u");
             List<User> users = (List<User>) query.getResultList();
             return copyUsersToDetails(users);
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
+
     private List<UserDetails> copyUsersToDetails(List<User> users) {
         List<UserDetails> detailsList = new ArrayList<>();
         for (User user : users) {
