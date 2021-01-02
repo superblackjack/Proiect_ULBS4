@@ -11,16 +11,16 @@
 <t:pageTemplate pageTitle="Jobs">
     <h1> Lista cu joburi </h1>
     <c:forEach var="job" items="${jobs}" varStatus="status">
-            <div class="row">
-                <div class="col-md-3 ">
-                    ${job.post}
-                </div>
-                <div class="col-md-3 ">
-                    ${job.descriere}
-                </div>
-                <div class="col-md-2 ">
-                    ${job.email}
-                </div>
+        <div class="row">
+            <div class="col-md-3 ">
+                ${job.post}
             </div>
-        </c:forEach>
+            <div class="col-md-3 ">
+                ${job.descriere}
+            </div>
+            <div class="col-md-2 ">
+                ${job.email}
+            </div>
+        </div>
+    </c:forEach>
 </t:pageTemplate>

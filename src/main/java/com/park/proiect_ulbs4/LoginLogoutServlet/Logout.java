@@ -37,5 +37,4 @@ public class Logout extends HttpServlet {
     public String getServletInfo() {
         return "Logout v1.0";
     }
-
 }

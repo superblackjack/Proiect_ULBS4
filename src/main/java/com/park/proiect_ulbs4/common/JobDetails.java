@@ -9,8 +9,8 @@ package com.park.proiect_ulbs4.common;
  *
  * @author Asus
  */
-public class JobDetails implements java.io.Serializable{
-    
+public class JobDetails implements java.io.Serializable {
+
     private Integer id;
     private String post;
     private String descriere;
@@ -38,6 +38,4 @@ public class JobDetails implements java.io.Serializable{
     public String getEmail() {
         return email;
     }
-    
-    
 }

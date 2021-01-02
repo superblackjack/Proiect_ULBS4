@@ -8,7 +8,6 @@ package com.park.proiect_ulbs4.servlet;
 import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.ejb.JobBean;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.annotation.security.DeclareRoles;
 import javax.inject.Inject;
@@ -38,17 +37,17 @@ public class Jobs extends HttpServlet {
 
     @Inject
     private JobBean jobBean;
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         request.setAttribute("activePage","Jobs");
-         
-         List<JobDetails> jobs=jobBean.getAllJobs();
-         request.setAttribute("jobs",jobs);
-         
-         request.getRequestDispatcher("/WEB-INF/pages/jobs.jsp").forward(request, response);
-         
+        request.setAttribute("activePage", "Jobs");
+
+        List<JobDetails> jobs = jobBean.getAllJobs();
+        request.setAttribute("jobs", jobs);
+
+        request.getRequestDispatcher("/WEB-INF/pages/jobs.jsp").forward(request, response);
+
     }
 
     @Override
@@ -58,6 +57,6 @@ public class Jobs extends HttpServlet {
 
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Jobs v1.0";
     }
 }

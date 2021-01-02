@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                request.setAttribute("message", "Email or password incorrect");
+        request.setAttribute("message", "Email or password incorrect");
         request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
     }
 
@@ -37,5 +37,4 @@ public class Login extends HttpServlet {
     public String getServletInfo() {
         return "Login v1.0";
     }
-
 }

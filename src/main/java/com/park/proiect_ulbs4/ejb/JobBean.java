@@ -31,13 +31,14 @@ public class JobBean {
     public List<JobDetails> getAllJobs() {
         LOG.info("getAllJobs");
         try {
-            Query query=em.createQuery("SELECT j FROM Job j");
+            Query query = em.createQuery("SELECT j FROM Job j");
             List<Job> jobs = (List<Job>) query.getResultList();
             return copyJobsToDetails(jobs);
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
+
     private List<JobDetails> copyJobsToDetails(List<Job> jobs) {
         List<JobDetails> detailsList = new ArrayList<>();
         for (Job job : jobs) {

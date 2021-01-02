@@ -90,7 +90,7 @@ public class User implements Serializable {
     public void setPosition(String position) {
         this.position = position;
     }
-    
+
     public Collection<Job> getJobs() {
         return jobs;
     }
@@ -98,7 +98,7 @@ public class User implements Serializable {
     public void setJobs(Collection<Job> jobs) {
         this.jobs = jobs;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -123,5 +123,4 @@ public class User implements Serializable {
     public String toString() {
         return "com.park.proiect_ulbs4.entity.User[ id=" + id + " ]";
     }
-
 }

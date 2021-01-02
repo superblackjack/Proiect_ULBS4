@@ -33,7 +33,7 @@ public class Job implements Serializable {
     public Integer getId() {
         return id;
     }
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_KEY")
     private User user;
@@ -61,7 +61,7 @@ public class Job implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-    
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -90,5 +90,4 @@ public class Job implements Serializable {
     public String toString() {
         return "com.park.proiect_ulbs4.entity.Job[ id=" + id + " ]";
     }
-    
 }

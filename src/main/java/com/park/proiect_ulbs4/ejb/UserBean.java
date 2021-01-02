@@ -5,9 +5,7 @@
  */
 package com.park.proiect_ulbs4.ejb;
 
-import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.common.UserDetails;
-import com.park.proiect_ulbs4.entity.Job;
 import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +29,6 @@ public class UserBean {
     private EntityManager em;
 
     public void createUser(String nume, String prenume, String email, String passwordSha256, String position) {
-
-        //LOG.info("createUser");
         User user = new User();
         user.setNume(nume);
         user.setPrenume(prenume);
