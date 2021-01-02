@@ -60,7 +60,7 @@ public class AddJobs extends HttpServlet {
             throws ServletException, IOException {
         String post = request.getParameter("post");
         String descriere = request.getParameter("descriere");
-       // String email = request.getParameter("email"); 
+        
         int userId = Integer.parseInt(request.getParameter("user_id"));
         jobBean.createJob(post,descriere,userId);
         response.sendRedirect(request.getContextPath()+"/Jobs");

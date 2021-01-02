@@ -22,4 +22,3 @@
         </div>
     </c:forEach>
 </t:pageTemplate>
-

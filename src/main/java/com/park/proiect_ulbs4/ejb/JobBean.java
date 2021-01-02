@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.park.proiect_ulbs4.ejb;
 
 import com.park.proiect_ulbs4.common.JobDetails;
@@ -30,6 +25,11 @@ public class JobBean {
     @PersistenceContext
     private EntityManager em;
 
+    public JobDetails findByID(Integer carId) {
+        Job job = em.find(Job.class, carId);
+        return new JobDetails(job.getId(), job.getPost(), job.getDescriere(), job.getUser().getEmail());
+    }
+
     public List<JobDetails> getAllJobs() {
         LOG.info("getAllJobs");
         try {
@@ -52,28 +52,42 @@ public class JobBean {
         }
         return detailsList;
     }
-    
-    public void createJob(String post, String descriere, Integer userId){
-    LOG.info("createJob");
-    Job job = new Job();
-    job.setPost(post);
-    job.setDescriere(descriere);
-    
-    User user = em.find(User.class, userId);
-    user.getJobs().add(job);
-    job.setUser(user);
-    
-    em.persist(job);
-    
+
+    public void createJob(String post, String descriere, Integer userId) {
+        LOG.info("createJob");
+        Job job = new Job();
+        job.setPost(post);
+        job.setDescriere(descriere);
+
+        User user = em.find(User.class, userId);
+        user.getJobs().add(job);
+        job.setUser(user);
+
+        em.persist(job);
     }
-    
-    public void deleteJobsByIds(Collection<Integer> ids){
-    LOG.info("deleteJobsByIds");
-    for(Integer id:ids){
-        Job job = em.find(Job.class, id);
-        em.remove(job);
+
+    public void updateJob(Integer jobId, String post, String descriere, Integer userId) {
+        LOG.info("updateJob");
+
+        Job job = em.find(Job.class, jobId);
+        job.setPost(post);
+        job.setDescriere(descriere);
+
+        //remove this car from teh old qwner
+        User oldUser = job.getUser();
+        oldUser.getJobs().remove(job);
+
+        //add the car to its new user
+        User user = em.find(User.class, userId);
+        user.getJobs().add(job);
+        job.setUser(user);
     }
+
+    public void deleteJobsByIds(Collection<Integer> ids) {
+        LOG.info("deleteJobsByIds");
+        for (Integer id : ids) {
+            Job job = em.find(Job.class, id);
+            em.remove(job);
+        }
     }
-    
-    
 }
