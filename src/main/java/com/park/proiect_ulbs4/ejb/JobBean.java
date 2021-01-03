@@ -25,8 +25,8 @@ public class JobBean {
     @PersistenceContext
     private EntityManager em;
 
-    public JobDetails findByID(Integer carId) {
-        Job job = em.find(Job.class, carId);
+    public JobDetails findByID(Integer jobId) {
+        Job job = em.find(Job.class, jobId);
         return new JobDetails(job.getId(), job.getPost(), job.getDescriere(), job.getUser().getEmail());
     }
 
@@ -44,11 +44,11 @@ public class JobBean {
     private List<JobDetails> copyJobsToDetails(List<Job> jobs) {
         List<JobDetails> detailsList = new ArrayList<>();
         for (Job job : jobs) {
-            JobDetails JobDetails = new JobDetails(job.getId(),
+            JobDetails jobDetails = new JobDetails(job.getId(),
                     job.getPost(),
                     job.getDescriere(),
                     job.getUser().getEmail());
-            detailsList.add(JobDetails);
+            detailsList.add(jobDetails);
         }
         return detailsList;
     }
@@ -73,14 +73,14 @@ public class JobBean {
         job.setPost(post);
         job.setDescriere(descriere);
 
-        //remove this car from teh old qwner
         User oldUser = job.getUser();
         oldUser.getJobs().remove(job);
 
-        //add the car to its new user
         User user = em.find(User.class, userId);
         user.getJobs().add(job);
         job.setUser(user);
+        
+        em.persist(job);
     }
 
     public void deleteJobsByIds(Collection<Integer> ids) {

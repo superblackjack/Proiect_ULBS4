@@ -28,8 +28,8 @@ public class UserBean {
         user.setNume(nume);
         user.setPrenume(prenume);
         user.setEmail(email);
-        user.setPosition(position);
         user.setPassword(passwordSha256);
+        user.setPosition(position);
 
         em.persist(user);
     }
@@ -48,12 +48,12 @@ public class UserBean {
     private List<UserDetails> copyUsersToDetails(List<User> users) {
         List<UserDetails> detailsList = new ArrayList<>();
         for (User user : users) {
-            UserDetails UserDetails = new UserDetails(user.getId(),
+            UserDetails userDetails = new UserDetails(user.getId(),
                     user.getNume(),
                     user.getPrenume(),
-                    user.getPosition(),
-                    user.getEmail());
-            detailsList.add(UserDetails);
+                    user.getEmail(),
+                    user.getPosition());
+            detailsList.add(userDetails);
         }
         return detailsList;
     }

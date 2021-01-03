@@ -8,7 +8,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<t:pageTemplate pageTitle = "EditJobs">
+<t:pageTemplate pageTitle = "Edit Job">
     <h1>Edit Job</h1>
     
     <div class="col-md-8 order-md-1">
@@ -24,16 +24,16 @@
 
             <div class="mb-3">
                 <label for="descriere">Description</label>
-                <input type="text" class="form-control" name="descriere" id="descriere" placeholder="Post description" required values="${job.descriere}">
+                <input type="text" class="form-control" name="descriere" id="descriere" placeholder="Post Description" required value="${job.descriere}">
                 <div class="invalid-feedback">
-                    Post description required.
+                    Post Description is required.
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="user_id">Email</label>
                 <select class="custom-select d-block w-100" name="user_id" id="user_id" required>
-                    <option value="">Choose...</option>
+                    <!--<option value="">Choose...</option>-->
                     <c:forEach var="user" items="${users}" varStatus="status">
                         <option value="${user.id}" ${job.email eq user.email ? 'selected' : ''}>${user.email}</option>
                     </c:forEach>
