@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.park.proiect_ulbs4.servlet;
+package com.park.proiect_ulbs4.servlet.user;
 
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.UserBean;
@@ -24,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Alexandra
  */
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = {"AdminRole"}))
-@WebServlet(name = "AddUser", urlPatterns = {"/AddUser"})
+@WebServlet(name = "AddUser", urlPatterns = {"/Users/Create"})
 public class AddUser extends HttpServlet {
 
     @Inject
@@ -35,7 +30,7 @@ public class AddUser extends HttpServlet {
             throws ServletException, IOException {
         List<UserDetails> users = userBean.getAllUsers();
         request.setAttribute("users", users);
-        request.getRequestDispatcher("/WEB-INF/pages/addUser.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/user/addUser.jsp").forward(request, response);
     }
 
     @Override

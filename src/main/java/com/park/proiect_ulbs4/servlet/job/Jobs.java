@@ -1,4 +1,4 @@
-package com.park.proiect_ulbs4.servlet;
+package com.park.proiect_ulbs4.servlet.job;
 
 import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.ejb.JobBean;
@@ -39,7 +39,7 @@ public class Jobs extends HttpServlet {
         List<JobDetails> jobs = jobBean.getAllJobs();
         request.setAttribute("jobs", jobs);
 
-        request.getRequestDispatcher("/WEB-INF/pages/jobs.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/job/jobs.jsp").forward(request, response);
 
     }
 

@@ -1,4 +1,4 @@
-package com.park.proiect_ulbs4.LoginLogoutServlet;
+package com.park.proiect_ulbs4.servlet.LoginLogout;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,24 +12,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sebi
  */
-@WebServlet(name = "Logout", urlPatterns = {"/Logout"})
-public class Logout extends HttpServlet {
+@WebServlet(name = "Login", urlPatterns = {"/Login"})
+public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.logout();
-        request.getSession().invalidate();
-        response.sendRedirect(request.getContextPath());
+        request.getRequestDispatcher("/WEB-INF/pages/login/login.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("message", "Email or password incorrect");
+        request.getRequestDispatcher("/WEB-INF/pages/login/login.jsp").forward(request, response);
     }
 
     @Override
     public String getServletInfo() {
-        return "Logout v1.0";
+        return "Login v1.0";
     }
 }

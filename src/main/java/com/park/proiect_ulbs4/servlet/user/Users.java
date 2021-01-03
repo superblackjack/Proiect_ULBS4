@@ -1,4 +1,4 @@
-package com.park.proiect_ulbs4.servlet;
+package com.park.proiect_ulbs4.servlet.user;
 
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.UserBean;
@@ -27,11 +27,10 @@ public class Users extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
         request.setAttribute("activePage", "Users");
         List<UserDetails> users = userBean.getAllUsers();
         request.setAttribute("users", users);
-        request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/user/users.jsp").forward(request, response);
     }
 
     @Override
