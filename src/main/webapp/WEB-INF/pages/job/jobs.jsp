@@ -11,13 +11,19 @@
 <t:pageTemplate pageTitle="Jobs">
     <h1> Lista cu joburi </h1>
     <form method="POST" action="${pageContext.request.contextPath}/Jobs">
-        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Jobs/Create" role="button">Add Jobs</a>
-        <button class="btn btn-danger btn-lg" type="submit"> Delete Jobs</button>
+        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+            <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Jobs/Create" role="button">Add Jobs</a>
+        </c:if>
+        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+            <button class="btn btn-danger btn-lg" type="submit"> Delete Jobs</button>
+        </c:if>
         <c:forEach var="job" items="${jobs}" varStatus="status">
             <div class="row">
-                <div class="col-md">
-                    <input type="checkbox" name="job_ids" value="${job.id}" />
-                </div>
+                <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                    <div class="col-md"> 
+                        <input type="checkbox" name="job_ids" value="${job.id}" />
+                    </div>
+                </c:if>
                 <div class="col-md-3 ">
                     ${job.post}
                 </div>
@@ -28,7 +34,9 @@
                     ${job.email}
                 </div>
                 <div class="col-md-2 ">
-                    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Update?id=${job.id}" role="button">Edit Job</a>
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Update?id=${job.id}" role="button">Edit Job</a>
+                    </c:if>
                 </div>
             </div>
         </c:forEach>

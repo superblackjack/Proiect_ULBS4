@@ -21,11 +21,8 @@
         <input type="text" id="email" name="j_username" class="form-control" placeholder="Email" required autofocus>
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required>
-        <!--<div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>-->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <h5>Nu ai cont? Inregistreaza-te!</h5>
+       <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Register" role="button">Register</a>
     </form>
 </t:pageTemplate>

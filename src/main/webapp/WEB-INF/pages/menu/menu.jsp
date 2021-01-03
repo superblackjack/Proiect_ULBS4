@@ -14,12 +14,12 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <c:if test = "${pageContext.request.isUserInRole('AdminRole')}">
+                <c:if test = "${pageContext.request.isUserInRole('ClientRole')}">
                     <li class="nav-item ${activePage eq 'Jobs' ? ' active' : ''}">
                         <a class="nav-link" href="${pageContext.request.contextPath}/Jobs">Jobs</a>
                     </li>
                 </c:if>
-                <c:if test = "${pageContext.request.isUserInRole('ClientRole')}">
+                <c:if test = "${pageContext.request.isUserInRole('AdminRole')}">
                     <li class="nav-item ${activePage eq 'Users' ? ' active' : ''}">
                         <a class="nav-link" href="${pageContext.request.contextPath}/Users">Users</a>
                     </li>
