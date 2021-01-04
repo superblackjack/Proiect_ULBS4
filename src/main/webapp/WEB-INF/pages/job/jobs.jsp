@@ -28,7 +28,7 @@
             <c:forEach var="job" items="${jobs}" varStatus="status">
                 <div class="row mb-lg-3">
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                        <div class="col-lg-2"> 
+                        <div class="col-lg-1"> 
                             <input type="checkbox" name="job_ids" value="${job.id}" />
                         </div>
                     </c:if>
@@ -42,7 +42,7 @@
                             ${job.descriere}
                         </div>
                     </div>
-                    <div class="col-lg-2 ">
+                    <div class="col-lg-3 ">
                         <div class="text-pages">
                             ${job.email}
                         </div>
