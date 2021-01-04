@@ -1,6 +1,7 @@
 package com.park.proiect_ulbs4.ejb;
 
 import com.park.proiect_ulbs4.common.UserDetails;
+import com.park.proiect_ulbs4.entity.CV;
 import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -90,6 +91,17 @@ public class UserBean {
             User user = em.find(User.class, id);
             em.remove(user);
         }
+    }
+    
+    public void addCVToUser(Integer userId, String filename, String fileType, byte[] fileContent){
+    LOG.info("addCVToUser");
+    CV cv = new CV();
+    cv.setFilename(filename);
+    cv.setFileType(fileType);
+    cv.setFileContent(fileContent);
+    
+    User user = em.find(User.class, userId);
+    user.setCv(cv);
     }
     
 }

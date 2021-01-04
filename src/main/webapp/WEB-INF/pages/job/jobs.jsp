@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <t:pageTemplate pageTitle="Jobs">
-    <h1> Lista cu joburi </h1>
+    <h1> Job List </h1>
     <form method="POST" action="${pageContext.request.contextPath}/Jobs">
         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
             <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Jobs/Create" role="button">Add Jobs</a>
@@ -37,6 +37,9 @@
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
                         <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Update?id=${job.id}" role="button">Edit Job</a>
                     </c:if>
+                    <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
+                        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Users/AddCV?id=${user.id}" role="button">Apply</a>
+                    </c:if>      
                 </div>
             </div>
         </c:forEach>
