@@ -10,6 +10,11 @@ public class UserDetails {
     private String nume;
     private String prenume;
     private String email;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
     private String position;
 
     public UserDetails(Integer id, String nume, String prenume, String email, String position) {
@@ -17,6 +22,15 @@ public class UserDetails {
         this.nume = nume;
         this.prenume = prenume;
         this.email = email;
+        this.position = position;
+    }
+
+    public UserDetails(Integer id, String nume, String prenume, String email, String password, String position) {
+        this.id = id;
+        this.nume = nume;
+        this.prenume = prenume;
+        this.email = email;
+        this.password = password;
         this.position = position;
     }
 
