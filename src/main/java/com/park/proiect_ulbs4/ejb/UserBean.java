@@ -93,15 +93,15 @@ public class UserBean {
         }
     }
     
-    public void addCVToUser(Integer userId, String filename, String fileType, byte[] fileContent){
-    LOG.info("addCVToUser");
-    CV cv = new CV();
-    cv.setFilename(filename);
-    cv.setFileType(fileType);
-    cv.setFileContent(fileContent);
+    //public void addCVToUser(Integer userId, String filename, String fileType, byte[] fileContent){
+    //LOG.info("addCVToUser");
+    //CV cv = new CV();
+    //cv.setFilename(filename);
+    //cv.setFileType(fileType);
+    //cv.setFileContent(fileContent);
     
-    User user = em.find(User.class, userId);
-    user.setCv(cv);
-    }
+    //User user = em.find(User.class, userId);
+    //user.setCv(cv);
+    //}
     
 }

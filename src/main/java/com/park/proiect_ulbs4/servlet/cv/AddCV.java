@@ -1,4 +1,5 @@
 package com.park.proiect_ulbs4.servlet.cv;
+import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.JobBean;
 import com.park.proiect_ulbs4.ejb.UserBean;
@@ -34,19 +35,18 @@ JobBean jobBean;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {     
-        int userId = Integer.parseInt(request.getParameter("id"));
-        UserDetails user = userBean.findByID(userId);
-        request.setAttribute("user", user);
+        Integer jobId = Integer.parseInt(request.getParameter("id"));
+        JobDetails job = jobBean.findByID(jobId);
+        request.setAttribute("job", job);
         
-        request.getRequestDispatcher("/WEB-INF/pages/cv/addCV.jsp").forward(request, response);
-        
+        request.getRequestDispatcher("/WEB-INF/pages/cv/addCV.jsp").forward(request, response);   
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userIdAsString = request.getParameter("user_id");
-        Integer userId = Integer.parseInt(userIdAsString);
+        String jobIdAsString = request.getParameter("job_id");
+        Integer jobId = Integer.parseInt(jobIdAsString);
         
         Part filePart = request.getPart("file");
         String fileName = filePart.getSubmittedFileName();
@@ -55,7 +55,7 @@ JobBean jobBean;
         byte[] fileContent = new byte[(int) fileSize];
         filePart.getInputStream().read(fileContent);
         
-        userBean.addCVToUser(userId, fileName, fileType, fileContent);
+        jobBean.addCVToUser(jobId, fileName, fileType, fileContent);
         response.sendRedirect(request.getContextPath()+"/Jobs");
         
     }

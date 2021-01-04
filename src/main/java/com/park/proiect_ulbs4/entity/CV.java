@@ -32,11 +32,19 @@ public class CV implements Serializable {
     private byte[] fileContent;
     
     @OneToOne
-    @JoinColumn(name = "USER_KEY")
-    private User user;
+    @JoinColumn(name = "JOB_KEY")
+    private Job job;
     
     public Integer getId() {
         return id;
+    }
+
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
     }
 
     public void setId(Integer id) {

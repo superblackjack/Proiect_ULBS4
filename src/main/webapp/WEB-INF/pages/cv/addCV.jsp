@@ -4,8 +4,12 @@
     Author     : SuperBlackJack
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <t:pageTemplate pageTitle="Add CV">
-    <h1>Add CV></h1>
+    <h1>Add CV</h1>
     <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data"
           action="${pageContext.request.contextPath}/Users/AddCV">
         <div class="row">
@@ -17,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="user_id" value="${user.id}"/>
-        <button class="btn btn-primary btn-lg btn-block" type="submit"> Apply</button>
+        <input type="hidden" name="user_id" value="${job.id}"/>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Apply</button>
     </form>
 </t:pageTemplate>

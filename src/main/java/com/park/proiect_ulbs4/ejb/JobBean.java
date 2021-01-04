@@ -1,6 +1,7 @@
 package com.park.proiect_ulbs4.ejb;
 
 import com.park.proiect_ulbs4.common.JobDetails;
+import com.park.proiect_ulbs4.entity.CV;
 import com.park.proiect_ulbs4.entity.Job;
 import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ public class JobBean {
         User user = em.find(User.class, userId);
         user.getJobs().add(job);
         job.setUser(user);
-        
+
         em.persist(job);
     }
 
@@ -89,5 +90,19 @@ public class JobBean {
             Job job = em.find(Job.class, id);
             em.remove(job);
         }
+    }
+
+    public void addCVToUser(Integer jobId, String filename, String fileType, byte[] fileContent) {
+        LOG.info("addCVToJob");
+        CV cv = new CV();
+        cv.setFilename(filename);
+        cv.setFileType(fileType);
+        cv.setFileContent(fileContent);
+
+        Job job = em.find(Job.class, jobId);
+        job.setCv(cv);
+        
+        cv.setJob(job);
+        em.persist(cv);
     }
 }
