@@ -7,7 +7,9 @@ and open the template in the editor.
     Created on : Jan 4, 2021, 2:06:56 PM
     Author     : Asus
 */
-
+body{
+    background-color: #043049 !important;
+}
 .login-box{
     height: 100%;
     width: 100%;
@@ -57,4 +59,15 @@ and open the template in the editor.
     background-repeat: no-repeat;
     height: 100%;
     
+}
+.navbar{
+    background-color: #08263e !important;
+}
+
+.title-pages{
+    color:white;
+    
+}
+.text-pages{
+    color:white;
 }
