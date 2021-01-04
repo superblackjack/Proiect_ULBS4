@@ -10,7 +10,6 @@
 
 <t:pageTemplate pageTitle = "Edit Job">
     <h1>Edit Job</h1>
-    
     <div class="col-md-8 order-md-1">
         <form class="needs-validation" novalidate method="POST" action="${pageContext.request.contextPath}/Jobs/Update">
 
@@ -21,7 +20,6 @@
                     Post is required.
                 </div>
             </div>
-
             <div class="mb-3">
                 <label for="descriere">Description</label>
                 <input type="text" class="form-control" name="descriere" id="descriere" placeholder="Post Description" required value="${job.descriere}">
@@ -29,7 +27,6 @@
                     Post Description is required.
                 </div>
             </div>
-
             <div class="mb-3">
                 <label for="user_id">Email</label>
                 <select class="custom-select d-block w-100" name="user_id" id="user_id" required>
@@ -42,7 +39,6 @@
                     Please select email.
                 </div>
             </div>
-
             <hr class="mb-4">
             <input type="hidden" name="job_id" value="${job.id}">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>

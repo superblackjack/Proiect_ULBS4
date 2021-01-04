@@ -4,7 +4,6 @@ import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.JobBean;
 import com.park.proiect_ulbs4.ejb.UserBean;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -25,29 +24,26 @@ public class AddJob extends HttpServlet {
 
     @Inject
     UserBean userBean;
-    
+
     @Inject
     JobBean jobBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         List<UserDetails> users = userBean.getAllUsers();
         request.setAttribute("users", users);
-        
         request.getRequestDispatcher("/WEB-INF/pages/job/addJob.jsp").forward(request, response);
     }
-   
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String post = request.getParameter("post");
         String descriere = request.getParameter("descriere");
-        
         int userId = Integer.parseInt(request.getParameter("user_id"));
-        jobBean.createJob(post,descriere,userId);
-        response.sendRedirect(request.getContextPath()+"/Jobs");
+        jobBean.createJob(post, descriere, userId);
+        response.sendRedirect(request.getContextPath() + "/Jobs");
     }
 
     @Override

@@ -3,14 +3,11 @@ package com.park.proiect_ulbs4.entity;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.json.bind.annotation.JsonbTransient;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,20 +23,15 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Integer id;
-
     private String nume;
-
     private String prenume;
-
     private String email;
-
     private String password;
-
     private String position;
 
     @JsonbTransient
     @OneToMany(mappedBy = "user")
-    
+
     private Collection<Job> jobs;
 
     public Integer getId() {
@@ -122,5 +114,4 @@ public class User implements Serializable {
     public String toString() {
         return "com.park.proiect_ulbs4.entity.User[ id=" + id + " ]";
     }
-
 }

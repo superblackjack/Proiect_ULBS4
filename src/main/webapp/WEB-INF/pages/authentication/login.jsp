@@ -23,6 +23,6 @@
         <input type="password" id="password" name="j_password" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <h5>Nu ai cont? Inregistreaza-te!</h5>
-       <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Register" role="button">Register</a>
+        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Register" role="button">Register</a>
     </form>
 </t:pageTemplate>

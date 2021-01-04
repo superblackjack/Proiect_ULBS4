@@ -9,7 +9,6 @@
 
 <t:pageTemplate pageTitle = "Edit User">
     <h1>Edit User</h1>
-
     <div class="col-md-8 order-md-1">
         <form class="needs-validation" novalidate method="POST" action="${pageContext.request.contextPath}/Users/Update">
             <div class="row">

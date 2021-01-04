@@ -59,28 +59,22 @@ public class JobBean {
         Job job = new Job();
         job.setPost(post);
         job.setDescriere(descriere);
-
         User user = em.find(User.class, userId);
         user.getJobs().add(job);
         job.setUser(user);
-
         em.persist(job);
     }
 
     public void updateJob(Integer jobId, String post, String descriere, Integer userId) {
         LOG.info("updateJob");
-
         Job job = em.find(Job.class, jobId);
         job.setPost(post);
         job.setDescriere(descriere);
-
         User oldUser = job.getUser();
         oldUser.getJobs().remove(job);
-
         User user = em.find(User.class, userId);
         user.getJobs().add(job);
         job.setUser(user);
-
         em.persist(job);
     }
 
@@ -98,10 +92,8 @@ public class JobBean {
         cv.setFilename(filename);
         cv.setFileType(fileType);
         cv.setFileContent(fileContent);
-
         Job job = em.find(Job.class, jobId);
         job.setCv(cv);
-        
         cv.setJob(job);
         em.persist(cv);
     }

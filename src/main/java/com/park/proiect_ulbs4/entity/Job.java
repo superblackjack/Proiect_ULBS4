@@ -23,13 +23,10 @@ public class Job implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Integer id;
     private String post;
     private String descriere;
-
-    public Integer getId() {
-        return id;
-    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_KEY")
@@ -38,14 +35,14 @@ public class Job implements Serializable {
     @OneToOne(mappedBy = "job", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CV cv;
 
-    public CV getCv() {
-        return cv;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCv(CV cv) {
-        this.cv = cv;
+    public void setId(Integer id) {
+        this.id = id;
     }
-            
+
     public String getPost() {
         return post;
     }
@@ -70,8 +67,12 @@ public class Job implements Serializable {
         this.user = user;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public CV getCv() {
+        return cv;
+    }
+
+    public void setCv(CV cv) {
+        this.cv = cv;
     }
 
     @Override

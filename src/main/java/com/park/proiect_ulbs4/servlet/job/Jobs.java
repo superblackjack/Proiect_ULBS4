@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Sebi
  */
 @DeclareRoles({"AdminRole", "ClientRole"})
-@ServletSecurity( value = @HttpConstraint(rolesAllowed = {"AdminRole", "ClientRole"})
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"AdminRole", "ClientRole"})
 //        httpMethodConstraint = {
 //            @HttpMethodConstraint(value = "POST", rolesAllowed = {"AdminRole"})
 //        }
@@ -35,18 +35,14 @@ public class Jobs extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("activePage", "Jobs");
-
         List<JobDetails> jobs = jobBean.getAllJobs();
         request.setAttribute("jobs", jobs);
-
         request.getRequestDispatcher("/WEB-INF/pages/job/jobs.jsp").forward(request, response);
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String[] jobIdsAsString = request.getParameterValues("job_ids");
         if (jobIdsAsString != null) {
             List<Integer> jobIds = new ArrayList<>();

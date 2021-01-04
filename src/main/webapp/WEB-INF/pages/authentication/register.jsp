@@ -10,7 +10,6 @@
 
 <t:pageTemplate pageTitle = "Register">
     <h1>Register</h1>
-
     <div class="col-md-8 order-md-1">
         <form class="needs-validation" novalidate method="POST" action="${pageContext.request.contextPath}/Register">
             <div class="row">
@@ -60,10 +59,9 @@
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
             <h1>Ai deja cont? Logheaza-te!</h1>
-           <a class="btn btn-primary btn-lg btn-block" href="${pageContext.request.contextPath}/Login" role="button">Login</a>
+            <a class="btn btn-primary btn-lg btn-block" href="${pageContext.request.contextPath}/Login" role="button">Login</a>
         </form>
     </div>
-
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {

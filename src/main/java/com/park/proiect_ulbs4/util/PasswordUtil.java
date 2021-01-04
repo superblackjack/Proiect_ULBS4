@@ -24,7 +24,7 @@ public class PasswordUtil {
         }
         return null;
     }
-    
+
     public static String convertToSha1(String password) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");

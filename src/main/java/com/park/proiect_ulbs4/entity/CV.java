@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.park.proiect_ulbs4.entity;
 
 import java.io.Serializable;
@@ -25,26 +20,18 @@ public class CV implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    
+
     private Integer id;
     private String filename;
     private String fileType;
     private byte[] fileContent;
-    
+
     @OneToOne
     @JoinColumn(name = "JOB_KEY")
     private Job job;
 
     public Integer getId() {
         return id;
-    }
-
-    public Job getJob() {
-        return job;
-    }
-
-    public void setJob(Job job) {
-        this.job = job;
     }
 
     public void setId(Integer id) {
@@ -75,6 +62,14 @@ public class CV implements Serializable {
         this.fileContent = fileContent;
     }
 
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -84,7 +79,6 @@ public class CV implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof CV)) {
             return false;
         }
@@ -95,11 +89,8 @@ public class CV implements Serializable {
         return true;
     }
 
-  
-    
     @Override
     public String toString() {
         return "com.park.proiect_ulbs4.entity.CV[ id=" + id + " ]";
     }
-    
 }

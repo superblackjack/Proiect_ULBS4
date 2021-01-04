@@ -11,10 +11,6 @@ public class UserDetails {
     private String prenume;
     private String email;
     private String password;
-
-    public String getPassword() {
-        return password;
-    }
     private String position;
 
     public UserDetails(Integer id, String nume, String prenume, String email, String position) {
@@ -50,7 +46,35 @@ public class UserDetails {
         return email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public String getPosition() {
         return position;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public void setPrenume(String prenume) {
+        this.prenume = prenume;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 }

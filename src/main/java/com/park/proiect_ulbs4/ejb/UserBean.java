@@ -1,7 +1,6 @@
 package com.park.proiect_ulbs4.ejb;
 
 import com.park.proiect_ulbs4.common.UserDetails;
-import com.park.proiect_ulbs4.entity.CV;
 import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,7 +28,7 @@ public class UserBean {
         User user = em.find(User.class, userId);
         return new UserDetails(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getPassword(), user.getPosition());
     }
-    
+
     public void createUser(String nume, String prenume, String email, String passwordSha256, String position) {
         User user = new User();
         user.setNume(nume);
@@ -37,7 +36,6 @@ public class UserBean {
         user.setEmail(email);
         user.setPassword(passwordSha256);
         user.setPosition(position);
-
         em.persist(user);
     }
 
@@ -64,24 +62,15 @@ public class UserBean {
         }
         return detailsList;
     }
-    
+
     public void updateUser(Integer userId, String nume, String prenume, String email, String passwordSha256, String position) {
         LOG.info("updateUser");
-
         User user = em.find(User.class, userId);
         user.setNume(nume);
         user.setPrenume(prenume);
         user.setEmail(email);
         user.setPassword(passwordSha256);
         user.setPosition(position);
-
-        //Job oldJob = user.getJobs();
-        //oldUser.getJobs().remove(user);
-
-        //User user = em.find(User.class, userId);
-        //user.getJobs().add(job);
-        //job.setUser(user);
-        
         em.persist(user);
     }
 
@@ -92,16 +81,4 @@ public class UserBean {
             em.remove(user);
         }
     }
-    
-    //public void addCVToUser(Integer userId, String filename, String fileType, byte[] fileContent){
-    //LOG.info("addCVToUser");
-    //CV cv = new CV();
-    //cv.setFilename(filename);
-    //cv.setFileType(fileType);
-    //cv.setFileContent(fileContent);
-    
-    //User user = em.find(User.class, userId);
-    //user.setCv(cv);
-    //}
-    
 }
