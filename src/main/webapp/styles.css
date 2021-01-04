@@ -35,12 +35,14 @@ body{
 .login-title{
     color: #41d5fd;
 }
-.form-control{
+.form-control, .form-select{
     background-color: #041c2d !important;
     border-color: #041c2d !important;
     color:white !important;
     font-size: 15px !important;
-
+}
+.form-select{
+    height: 37px;
 }
 .btn{
     font-size: 15px !important;

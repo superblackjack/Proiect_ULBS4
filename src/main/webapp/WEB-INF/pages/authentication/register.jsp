@@ -47,12 +47,15 @@
                             <div class="text-color">
                                 <label for="position">Position</label>
                             </div>
-                            <select class="custom-select d-block w-100 mb-lg-3" name="position" id="position" required>
+                            <select class="form-select d-block w-100 mb-lg-3" name="position" id="position" required>
                                 <option value="CLIENT">Client</option>
                             </select>
                             <button class="btn btn-lg btn-primary btn-block mb-lg-4" type="submit">Register</button>
-                            <h1 class="login-text">Do you already have an account? Sign up!</h1>
-                            <a class="btn btn-secondary btn-lg btn-block mt-lg-4" href="${pageContext.request.contextPath}/Login" role="button">Login</a>
+                            <div class="login-text">
+                                <a>Do you already have an account?</a>
+                                <a href="${pageContext.request.contextPath}/Login">Sign in!</a>
+                            </div>
+                   
                         </form>
                     </div>
                 </div>

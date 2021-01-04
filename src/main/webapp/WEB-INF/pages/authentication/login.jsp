@@ -25,15 +25,17 @@
                             <input type="text" id="email" name="j_username" class="form-control mb-lg-3" placeholder="Email" required autofocus>
                             <input type="password" id="password" name="j_password" class="form-control mb-lg-3" placeholder="Password" required>
                             <button class="btn btn-lg btn-primary btn-block mb-lg-4" type="submit">Sign in</button>
-                            <h5 class="login-text">Nu ai cont? Inregistreaza-te!</h5>
-                            <a class="btn btn-secondary btn-lg btn-block mt-lg-4" href="${pageContext.request.contextPath}/Register" role="button">Register</a>
+                            <div class="login-text">
+                                <a>Don't you have an account?</a>
+                                <a href="${pageContext.request.contextPath}/Register">Sign up!</a>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7 pl-lg-0 pr-lg-0">
                 <div class="login-img"  style="background-image:url('${pageContext.request.contextPath}/img/login.jpg');">
-                    
+
                 </div>
             </div>
         </div>
