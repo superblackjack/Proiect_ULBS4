@@ -9,6 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <t:pageTemplate pageTitle="Jobs">
+    <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
     <h1> Lista cu joburi </h1>
     <form method="POST" action="${pageContext.request.contextPath}/Jobs">
         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">

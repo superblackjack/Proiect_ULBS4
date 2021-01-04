@@ -1,0 +1,60 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 4, 2021, 2:06:56 PM
+    Author     : Asus
+*/
+
+.login-box{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, #015b79, #08263e,#4e3264);
+    padding-left: 200px;
+    padding-right: 200px;
+
+}
+.login .row{
+    height: 100%;
+}
+
+.login{
+    height:100vh;
+}
+.vm{
+    position: relative;
+    display: block;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.login-title{
+    color: #41d5fd;
+}
+.form-control{
+    background-color: #041c2d !important;
+    border-color: #041c2d !important;
+    color:white !important;
+    font-size: 15px !important;
+
+}
+.btn{
+    font-size: 15px !important;
+}
+.btn.btn-primary{
+    background-color:  #179bff !important;
+    border-color: #179bff !important;
+}
+.login-text{
+    font-size:13px;
+    color:white;
+    text-align: center;
+}
+.login-img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    
+}
