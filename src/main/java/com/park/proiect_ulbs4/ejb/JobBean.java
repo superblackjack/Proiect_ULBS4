@@ -92,7 +92,7 @@ public class JobBean {
         }
     }
 
-    public void addCVToUser(Integer jobId, String filename, String fileType, byte[] fileContent) {
+    public void addCVToJob(Integer jobId, String filename, String fileType, byte[] fileContent) {
         LOG.info("addCVToJob");
         CV cv = new CV();
         cv.setFilename(filename);

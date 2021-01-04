@@ -34,7 +34,7 @@ public class CV implements Serializable {
     @OneToOne
     @JoinColumn(name = "JOB_KEY")
     private Job job;
-    
+
     public Integer getId() {
         return id;
     }

@@ -20,15 +20,12 @@ import javax.servlet.http.Part;
  *
  * @author SuperBlackJack
  */
-@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"ClientRole"}))
-@WebServlet(name = "AddCV", urlPatterns = {"/Users/AddCV"})
 @MultipartConfig
-       
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"ClientRole"}))
+@WebServlet(name = "AddCV", urlPatterns = {"/Jobs/AddCV"})
+
 public class AddCV extends HttpServlet {
     
-@Inject
-UserBean userBean;
-
 @Inject
 JobBean jobBean;
 
@@ -55,13 +52,11 @@ JobBean jobBean;
         byte[] fileContent = new byte[(int) fileSize];
         filePart.getInputStream().read(fileContent);
         
-        jobBean.addCVToUser(jobId, fileName, fileType, fileContent);
+        jobBean.addCVToJob(jobId, fileName, fileType, fileContent);
         response.sendRedirect(request.getContextPath()+"/Jobs");
         
     }
-
-
-
+    
     @Override
     public String getServletInfo() {
         return "AddCV v1.0";

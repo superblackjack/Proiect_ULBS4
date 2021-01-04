@@ -11,7 +11,7 @@
 <t:pageTemplate pageTitle="Add CV">
     <h1>Add CV</h1>
     <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data"
-          action="${pageContext.request.contextPath}/Users/AddCV">
+          action="${pageContext.request.contextPath}/Jobs/AddCV">
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="file">CV</label>
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="user_id" value="${job.id}"/>
+        <input type="hidden" name="job_id" value="${job.id}"/>
         <button class="btn btn-primary btn-lg btn-block" type="submit">Apply</button>
     </form>
 </t:pageTemplate>

@@ -40,11 +40,6 @@ public class User implements Serializable {
     @JsonbTransient
     @OneToMany(mappedBy = "user")
     
-    //@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //private CV cv;
-
-    
-    
     private Collection<Job> jobs;
 
     public Integer getId() {
@@ -127,13 +122,5 @@ public class User implements Serializable {
     public String toString() {
         return "com.park.proiect_ulbs4.entity.User[ id=" + id + " ]";
     }
-    
-    //public CV getCv() {
-    //    return cv;
-    //}
 
-    //public void setCv(CV cv) {
-    //    this.cv = cv;
-    //}
-    
 }
