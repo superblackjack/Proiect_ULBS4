@@ -24,6 +24,18 @@
                 </c:if>
             </div>
         </div>
+        <div class="row mb-lg-4">
+            <div class="col-lg-1"></div>       
+            <div class="col-lg-3 ">
+                <label class="text-pages text-size ml-lg-3" for="post">POST</label>
+            </div>
+            <div class="col-lg-3 ">
+                <label class="text-pages text-size ml-lg-5" for="descriere">DESCRIERE</label>
+            </div>
+            <div class="col-lg-3">
+                <label class="text-pages text-size ml-lg-5" for="email">EMAIL</label>
+            </div>
+        </div>
         <form method="POST" action="${pageContext.request.contextPath}/Jobs">
             <c:forEach var="job" items="${jobs}" varStatus="status">
                 <div class="row mb-lg-3">
