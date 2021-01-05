@@ -24,11 +24,23 @@
                 </c:if>
             </div>
         </div>
+        <div class="row mb-lg-4">
+            <div class="col-lg-1"></div>       
+            <div class="col-lg-3 ">
+                <label class="text-pages text-size ml-lg-3" for="post">POST</label>
+            </div>
+            <div class="col-lg-3 ">
+                <label class="text-pages text-size ml-lg-5" for="descriere">DESCRIERE</label>
+            </div>
+            <div class="col-lg-3">
+                <label class="text-pages text-size ml-lg-5" for="email">EMAIL</label>
+            </div>
+        </div>
         <form method="POST" action="${pageContext.request.contextPath}/Jobs">
             <c:forEach var="job" items="${jobs}" varStatus="status">
                 <div class="row mb-lg-3">
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                        <div class="col-lg-2"> 
+                        <div class="col-lg-1"> 
                             <input type="checkbox" name="job_ids" value="${job.id}" />
                         </div>
                     </c:if>
@@ -42,7 +54,7 @@
                             ${job.descriere}
                         </div>
                     </div>
-                    <div class="col-lg-2 ">
+                    <div class="col-lg-3 ">
                         <div class="text-pages">
                             ${job.email}
                         </div>
