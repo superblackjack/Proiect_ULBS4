@@ -10,8 +10,6 @@
 
 <t:pageTemplate pageTitle = "Add Job">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
-
-
     <div class="row mt-lg-5">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
@@ -49,8 +47,6 @@
         </div>
         <div class="col-lg-4"></div>
     </div>    
-
-
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
