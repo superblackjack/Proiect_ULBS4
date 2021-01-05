@@ -41,7 +41,6 @@ JobBean jobBean;
         request.setAttribute("job", job);
         
         request.getRequestDispatcher("/WEB-INF/pages/job/editJob.jsp").forward(request, response);
-        
     }
 
     @Override
