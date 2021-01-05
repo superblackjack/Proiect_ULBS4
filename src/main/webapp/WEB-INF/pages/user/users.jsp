@@ -24,6 +24,21 @@
                 </c:if>
             </div>
         </div>
+        <div class="row mb-lg-4">
+            <div class="col-lg-1"></div>  
+            <div class="col-lg-2 ">
+                <label class="text-pages text-size ml-lg-3" for="post">NUME</label>
+            </div>
+            <div class="col-lg-2 ">
+                <label class="text-pages text-size ml-lg-2" for="descriere">PRENUME</label>
+            </div>
+            <div class="col-lg-3">
+                <label class="text-pages text-size ml-lg-3" for="email">EMAIL</label>
+            </div>
+            <div class="col-lg-3">
+                <label class="text-pages text-size ml-lg-2" for="email">POSITION</label>
+            </div>
+        </div>
         <form method="POST" action="${pageContext.request.contextPath}/Users">               
             <c:forEach var="user" items="${users}" varStatus="status">
                 <div class="row mb-lg-3">
@@ -61,4 +76,4 @@
             </c:forEach>
         </form>
     </div>
-    </t:pageTemplate>
+</t:pageTemplate>
