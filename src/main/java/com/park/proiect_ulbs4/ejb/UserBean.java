@@ -90,6 +90,5 @@ public class UserBean {
             User user = em.find(User.class, id);
             em.remove(user);
         }
-    }
-    
+    }  
 }

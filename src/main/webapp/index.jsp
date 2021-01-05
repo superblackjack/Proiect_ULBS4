@@ -2,5 +2,6 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:pageTemplate pageTitle="eJobs">
+    <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
     <h1>Bun venit pe eJobs</h1>
 </t:pageTemplate>
