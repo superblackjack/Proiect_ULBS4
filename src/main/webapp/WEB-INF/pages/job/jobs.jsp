@@ -25,7 +25,9 @@
             </div>
         </div>
         <div class="row mb-lg-4">
-            <div class="col-lg-1"></div>       
+            <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                <div class="col-lg-1"></div>  
+            </c:if>
             <div class="col-lg-3 ">
                 <label class="text-pages text-size ml-lg-3" for="post">POST</label>
             </div>
