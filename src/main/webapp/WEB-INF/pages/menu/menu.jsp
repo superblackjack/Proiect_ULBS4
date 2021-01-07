@@ -5,7 +5,6 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="container-fixed-width">
     <nav class="navbar navbar-expand-lg navbar-dark ">
         <a class="navbar-brand" href="${pageContext.request.contextPath}">eJobs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +27,7 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/ContactUs">Contact Us</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-lg-3">
                 <li class="nav-item">
                     <c:choose>
                         <c:when test = "${pageContext.request.getRemoteUser() == null}">
@@ -42,4 +41,3 @@
             </ul>
         </div>
     </nav>
-</div>
