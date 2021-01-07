@@ -4,6 +4,7 @@ import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.JobBean;
 import com.park.proiect_ulbs4.ejb.UserBean;
+import com.park.proiect_ulbs4.entity.User;
 import com.park.proiect_ulbs4.util.PasswordUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -57,7 +58,12 @@ public class EditUser extends HttpServlet {
         String position = request.getParameter("position");
         int userId = Integer.parseInt(request.getParameter("user_id"));
         //int jobId = Integer.parseInt(request.getParameter("job_id"));
-
+        
+        String userEmail = request.getParameter("user");
+        
+        List<UserDetails> userbyEmail = userBean.getUserbyEmail(userEmail);
+        String ceva = userbyEmail.get(0).getNume();
+        request.setAttribute("ceva", ceva);
         String passwordSha256 = PasswordUtil.convertToSha256(password);
         
         userBean.updateUser(userId, nume, prenume, email, passwordSha256, position);

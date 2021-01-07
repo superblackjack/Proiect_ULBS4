@@ -50,6 +50,18 @@ public class UserBean {
             throw new EJBException(ex);
         }
     }
+    
+    public List<UserDetails> getUserbyEmail(String email)
+    {
+         LOG.info("getUserbyEmail");
+        try {
+            Query query = em.createQuery("SELECT u FROM User u WHERE u.email=:email").setParameter("email", email);
+             List<User> users = (List<User>) query.getResultList();
+            return copyUsersToDetails(users);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
 
     private List<UserDetails> copyUsersToDetails(List<User> users) {
         List<UserDetails> detailsList = new ArrayList<>();

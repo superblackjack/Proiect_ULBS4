@@ -14,6 +14,7 @@
         <div class="col-lg-4">
             <h1 class="title-pages">Edit User</h1>
             <form class="needs-validation" novalidate method="POST" action="${pageContext.request.contextPath}/Users/Update">
+                <input type="hidden" name="user" value="${pageContext.request.getRemoteUser()}"/>
                 <div class="mb-lg-3">
                     <label class="text-color" for="nume">Name</label>
                     <input type="text" class="form-control mb-lg-3" name="nume" id="nume" placeholder="Name" required value="${user.nume}">

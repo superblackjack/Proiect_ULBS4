@@ -40,6 +40,7 @@ public class JobBean {
             throw new EJBException(ex);
         }
     }
+   
 
     private List<JobDetails> copyJobsToDetails(List<Job> jobs) {
         List<JobDetails> detailsList = new ArrayList<>();
