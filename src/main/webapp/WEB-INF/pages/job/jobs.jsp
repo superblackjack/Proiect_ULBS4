@@ -12,9 +12,16 @@
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
     <div class="container mt-lg-5">
         <div class="row mb-lg-4">
-            <div class="col-lg-8">
-                <h1 class="title-pages"> Lista cu joburi </h1>
-            </div>
+            <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
+                <div class="col-lg-8">
+                    <h1 class="title-pages"> Lista cu joburi </h1>
+                </div>
+            </c:if>
+            <c:if test = "${pageContext.request.getRemoteUser() == null}">
+                <div class="col-lg-8">
+                    <h1 class="title-pages"> Available Jobs </h1>
+                </div>
+            </c:if>
             <div class="col-lg-4 text-right">
                 <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
                     <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Jobs/Create" role="button">Add Jobs</a>
@@ -34,9 +41,11 @@
             <div class="col-lg-3 ">
                 <label class="text-pages text-size ml-lg-5" for="descriere">DESCRIERE</label>
             </div>
-            <div class="col-lg-3">
-                <label class="text-pages text-size ml-lg-5" for="email">EMAIL</label>
-            </div>
+            <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
+                <div class="col-lg-3">
+                    <label class="text-pages text-size ml-lg-5" for="email">EMAIL</label>
+                </div>
+            </c:if>
         </div>
         <form method="POST" action="${pageContext.request.contextPath}/Jobs">
             <c:forEach var="job" items="${jobs}" varStatus="status">
@@ -56,11 +65,13 @@
                             ${job.descriere}
                         </div>
                     </div>
-                    <div class="col-lg-3 ">
-                        <div class="text-pages">
-                            ${job.email}
+                    <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
+                        <div class="col-lg-3 ">
+                            <div class="text-pages">
+                                ${job.email}
+                            </div>
                         </div>
-                    </div>
+                    </c:if>
                     <div class="col-lg-2 text-right">
                         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Update?id=${job.id}" role="button">Edit Job</a>

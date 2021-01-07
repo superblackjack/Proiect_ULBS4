@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
         session.setAttribute("nume", nume);
 
         request.setAttribute("message", "Email or password incorrect");
-        request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);
+        //request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);
     }
 
     @Override

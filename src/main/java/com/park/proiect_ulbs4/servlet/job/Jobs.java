@@ -20,11 +20,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author Sebi
  */
 @DeclareRoles({"AdminRole", "ClientRole"})
-@ServletSecurity( value = @HttpConstraint(rolesAllowed = {"AdminRole", "ClientRole"})
-//        httpMethodConstraint = {
-//            @HttpMethodConstraint(value = "POST", rolesAllowed = {"AdminRole"})
-//        }
-)
 @WebServlet(name = "Jobs", urlPatterns = {"/Jobs"})
 public class Jobs extends HttpServlet {
 
