@@ -38,6 +38,8 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private Collection<Job> jobs;
 
+    //private Collection<Aplicant> aplicanti;
+    
     public Integer getId() {
         return id;
     }

@@ -40,7 +40,39 @@ public class JobBean {
             throw new EJBException(ex);
         }
     }
-   
+
+    public List<JobDetails> getJobById() {
+        LOG.info("getJobById");
+        try {
+            Query query = em.createQuery("SELECT j FROM Job j WHERE j.id = :id");
+            List<Job> jobs = (List<Job>) query.getResultList();
+            return copyJobsToDetails(jobs);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public List<JobDetails> getJobByPost() {
+        LOG.info("getJobByPost");
+        try {
+            Query query = em.createQuery("SELECT j FROM Job j WHERE j.post = :post");
+            List<Job> jobs = (List<Job>) query.getResultList();
+            return copyJobsToDetails(jobs);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public List<JobDetails> getJobByDescriere() {
+        LOG.info("getJobByDescriere");
+        try {
+            Query query = em.createQuery("SELECT j FROM Job j WHERE j.descriere = :descriere");
+            List<Job> jobs = (List<Job>) query.getResultList();
+            return copyJobsToDetails(jobs);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
 
     private List<JobDetails> copyJobsToDetails(List<Job> jobs) {
         List<JobDetails> detailsList = new ArrayList<>();
@@ -80,7 +112,7 @@ public class JobBean {
         User user = em.find(User.class, userId);
         user.getJobs().add(job);
         job.setUser(user);
-        
+
         em.persist(job);
     }
 

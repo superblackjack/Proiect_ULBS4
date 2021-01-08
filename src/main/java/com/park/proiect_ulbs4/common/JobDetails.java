@@ -33,20 +33,4 @@ public class JobDetails implements java.io.Serializable {
     public String getEmail() {
         return email;
     }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setPost(String post) {
-        this.post = post;
-    }
-
-    public void setDescriere(String descriere) {
-        this.descriere = descriere;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

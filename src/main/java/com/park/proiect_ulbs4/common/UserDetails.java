@@ -11,10 +11,6 @@ public class UserDetails {
     private String prenume;
     private String email;
     private String password;
-
-    public String getPassword() {
-        return password;
-    }
     private String position;
 
     public UserDetails(Integer id, String nume, String prenume, String email, String position) {
@@ -48,6 +44,10 @@ public class UserDetails {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getPosition() {

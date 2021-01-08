@@ -28,17 +28,6 @@ public class UserBean {
         User user = em.find(User.class, userId);
         return new UserDetails(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getPassword(), user.getPosition());
     }
-    
-    public void createUser(String nume, String prenume, String email, String passwordSha256, String position) {
-        User user = new User();
-        user.setNume(nume);
-        user.setPrenume(prenume);
-        user.setEmail(email);
-        user.setPassword(passwordSha256);
-        user.setPosition(position);
-
-        em.persist(user);
-    }
 
     public List<UserDetails> getAllUsers() {
         LOG.info("getAllUsers");
@@ -50,13 +39,67 @@ public class UserBean {
             throw new EJBException(ex);
         }
     }
-    
-    public List<UserDetails> getUserbyEmail(String email)
-    {
-         LOG.info("getUserbyEmail");
+
+    public List<UserDetails> getUserById() {
+        LOG.info("getUserById");
         try {
-            Query query = em.createQuery("SELECT u FROM User u WHERE u.email=:email").setParameter("email", email);
-             List<User> users = (List<User>) query.getResultList();
+            Query query = em.createQuery("SELECT u FROM User u WHERE u.id = :id");
+            List<User> users = (List<User>) query.getResultList();
+            return copyUsersToDetails(users);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public List<UserDetails> getUserByName() {
+        LOG.info("getUserByName");
+        try {
+            Query query = em.createQuery("SELECT u FROM User u WHERE u.nume = :nume");
+            List<User> users = (List<User>) query.getResultList();
+            return copyUsersToDetails(users);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public List<UserDetails> getUserBySurname() {
+        LOG.info("getUserBySurname");
+        try {
+            Query query = em.createQuery("SELECT u FROM User u WHERE u.prenume = :prenume");
+            List<User> users = (List<User>) query.getResultList();
+            return copyUsersToDetails(users);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+//    public List<UserDetails> getUserByEmail() {
+//        LOG.info("getUserByEmail");
+//        try {
+//            Query query = em.createQuery("SELECT u FROM User u WHERE u.email = :email");
+//            List<User> users = (List<User>) query.getResultList();
+//            return copyUsersToDetails(users);
+//        } catch (Exception ex) {
+//            throw new EJBException(ex);
+//        }
+//    }
+    // Dupa ce ruleaza programul cu Aplicanti, verifica daca in loc de functia de jos getUserbyEmail merge cea de sus (Cea de jos e pt SessionUser si mai ceva)
+    public List<UserDetails> getUserbyEmail(String email) {
+        LOG.info("getUserbyEmail");
+        try {
+            Query query = em.createQuery("SELECT u FROM User u WHERE u.email = :email").setParameter("email", email);
+            List<User> users = (List<User>) query.getResultList();
+            return copyUsersToDetails(users);
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    public List<UserDetails> getUserByPosition() {
+        LOG.info("getUserByPosition");
+        try {
+            Query query = em.createQuery("SELECT u FROM User u WHERE u.position = :position");
+            List<User> users = (List<User>) query.getResultList();
             return copyUsersToDetails(users);
         } catch (Exception ex) {
             throw new EJBException(ex);
@@ -75,7 +118,19 @@ public class UserBean {
         }
         return detailsList;
     }
-    
+
+    public void createUser(String nume, String prenume, String email, String passwordSha256, String position) {
+        LOG.info("createUser");
+        User user = new User();
+        user.setNume(nume);
+        user.setPrenume(prenume);
+        user.setEmail(email);
+        user.setPassword(passwordSha256);
+        user.setPosition(position);
+
+        em.persist(user);
+    }
+
     public void updateUser(Integer userId, String nume, String prenume, String email, String passwordSha256, String position) {
         LOG.info("updateUser");
 
@@ -88,11 +143,9 @@ public class UserBean {
 
         //Job oldJob = user.getJobs();
         //oldUser.getJobs().remove(user);
-
         //User user = em.find(User.class, userId);
         //user.getJobs().add(job);
         //job.setUser(user);
-        
         em.persist(user);
     }
 
@@ -102,5 +155,5 @@ public class UserBean {
             User user = em.find(User.class, id);
             em.remove(user);
         }
-    }  
+    }
 }
