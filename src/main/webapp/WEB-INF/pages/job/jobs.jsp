@@ -10,44 +10,44 @@
 
 <t:pageTemplate pageTitle="Jobs">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
-    <div class="container mt-lg-5  pt-lg-5">
-        <div class="row mb-lg-4">
-            <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
-                <div class="col-lg-8">
-                    <h1 class="title-pages"> Lista cu joburi </h1>
-                </div>
-            </c:if>
-            <c:if test = "${pageContext.request.getRemoteUser() == null}">
-                <div class="col-lg-8">
-                    <h1 class="title-pages"> Available Jobs </h1>
-                </div>
-            </c:if>
-            <div class="col-lg-4 text-right">
-                <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Jobs/Create" role="button">Add Jobs</a>
+    <form method="POST" action="${pageContext.request.contextPath}/Jobs">
+        <div class="container mt-lg-5  pt-lg-5">
+            <div class="row mb-lg-4">
+                <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
+                    <div class="col-lg-8">
+                        <h1 class="title-pages"> Lista cu joburi </h1>
+                    </div>
                 </c:if>
+                <c:if test = "${pageContext.request.getRemoteUser() == null}">
+                    <div class="col-lg-8">
+                        <h1 class="title-pages"> Available Jobs </h1>
+                    </div>
+                </c:if>
+                <div class="col-lg-4 text-right">
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Jobs/Create" role="button">Add Jobs</a>
+                    </c:if>
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit"> Delete Jobs</button>
+                    </c:if>
+                </div>
+            </div>
+            <div class="row mb-lg-4">
                 <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                    <button class="btn btn-danger btn-lg ml-lg-4" type="submit"> Delete Jobs</button>
+                    <div class="col-lg-1"></div>  
+                </c:if>
+                <div class="col-lg-3 ">
+                    <label class="text-pages text-size ml-lg-3" for="post">POST</label>
+                </div>
+                <div class="col-lg-3 ">
+                    <label class="text-pages text-size ml-lg-5" for="descriere">DESCRIERE</label>
+                </div>
+                <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
+                    <div class="col-lg-3">
+                        <label class="text-pages text-size ml-lg-5" for="email">EMAIL</label>
+                    </div>
                 </c:if>
             </div>
-        </div>
-        <div class="row mb-lg-4">
-            <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                <div class="col-lg-1"></div>  
-            </c:if>
-            <div class="col-lg-3 ">
-                <label class="text-pages text-size ml-lg-3" for="post">POST</label>
-            </div>
-            <div class="col-lg-3 ">
-                <label class="text-pages text-size ml-lg-5" for="descriere">DESCRIERE</label>
-            </div>
-            <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
-                <div class="col-lg-3">
-                    <label class="text-pages text-size ml-lg-5" for="email">EMAIL</label>
-                </div>
-            </c:if>
-        </div>
-        <form method="POST" action="${pageContext.request.contextPath}/Jobs">
             <c:forEach var="job" items="${jobs}" varStatus="status">
                 <div class="row mb-lg-3">
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
@@ -79,6 +79,6 @@
                     </div>
                 </div>
             </c:forEach>
-        </form>
-    </div>
+    </form>
+</div>
 </t:pageTemplate>

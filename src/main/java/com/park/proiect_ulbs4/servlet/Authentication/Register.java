@@ -50,7 +50,7 @@ public class Register extends HttpServlet {
 
         userBean.createUser(nume, prenume, email, passwordSha256, position);
 
-        response.sendRedirect(request.getContextPath() + "/Users");
+        response.sendRedirect(request.getContextPath() + "/Login");
 
     }
 

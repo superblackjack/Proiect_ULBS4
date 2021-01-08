@@ -10,36 +10,36 @@
 
 <t:pageTemplate pageTitle="Users">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" />
-    <div class="container mt-lg-5 pt-lg-5">
-        <div class="row mb-lg-4">
-            <div class="col-lg-8">
-                <h1 class="title-pages">Users</h1>
+    <form method="POST" action="${pageContext.request.contextPath}/Users"> 
+        <div class="container mt-lg-5 pt-lg-5">
+            <div class="row mb-lg-4">
+                <div class="col-lg-8">
+                    <h1 class="title-pages">Users</h1>
+                </div>
+                <div class="col-lg-4 text-right">
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Users/Create" role="button">Add User</a>
+                    </c:if>
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit"> Delete Users</button>
+                    </c:if>
+                </div>
             </div>
-            <div class="col-lg-4 text-right">
-                <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Users/Create" role="button">Add User</a>
-                </c:if>
-                <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                    <button class="btn btn-danger btn-lg ml-lg-4" type="submit"> Delete Users</button>
-                </c:if>
-            </div>
-        </div>
-        <div class="row mb-lg-4">
-            <div class="col-lg-1"></div>  
-            <div class="col-lg-2 ">
-                <label class="text-pages text-size ml-lg-3" for="post">NUME</label>
-            </div>
-            <div class="col-lg-2 ">
-                <label class="text-pages text-size ml-lg-2" for="descriere">PRENUME</label>
-            </div>
-            <div class="col-lg-3">
-                <label class="text-pages text-size ml-lg-3" for="email">EMAIL</label>
-            </div>
-            <div class="col-lg-3">
-                <label class="text-pages text-size ml-lg-2" for="email">POSITION</label>
-            </div>
-        </div>
-        <form method="POST" action="${pageContext.request.contextPath}/Users">               
+            <div class="row mb-lg-4">
+                <div class="col-lg-1"></div>  
+                <div class="col-lg-2 ">
+                    <label class="text-pages text-size ml-lg-3" for="post">NUME</label>
+                </div>
+                <div class="col-lg-2 ">
+                    <label class="text-pages text-size ml-lg-2" for="descriere">PRENUME</label>
+                </div>
+                <div class="col-lg-3">
+                    <label class="text-pages text-size ml-lg-3" for="email">EMAIL</label>
+                </div>
+                <div class="col-lg-3">
+                    <label class="text-pages text-size ml-lg-2" for="email">POSITION</label>
+                </div>
+            </div>              
             <c:forEach var="user" items="${users}" varStatus="status">
                 <div class="row mb-lg-3">
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
@@ -74,6 +74,6 @@
                     </div>
                 </div>
             </c:forEach>
-        </form>
-    </div>
+    </form>
+</div>
 </t:pageTemplate>
