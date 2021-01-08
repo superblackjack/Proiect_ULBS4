@@ -13,7 +13,7 @@ body{
 .index-img {
     background-size: cover;
     background-repeat: no-repeat;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 48px);
 }
 .index-right-content {
     height: 100%;

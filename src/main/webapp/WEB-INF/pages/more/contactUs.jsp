@@ -15,20 +15,26 @@
         <div class="row">
             <div class="col-lg-12 pl-lg-0 pr-lg-0">
                 <div class="container-fluid login-img contact-us-img"  style="background-image:url('${pageContext.request.contextPath}/img/contactUs.jpg');">
-                        <div class="row">
-                            <div class="col-lg-8 text-pages">
-                                <a>hello</a>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="index-right-content text-pages">
-                                    <div class="vm">
-                                        <img class="mb-lg-5" src="${pageContext.request.contextPath}/img/locatie.JPG" />
-                                        <h4 class="mb-lg-4">Sibiu</h4>
-                                        <p>Text</p>
-                                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 text-pages">
+                            <a>hello</a>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="index-right-content text-pages">
+                                <div class="vm">
+                                    <img class="mb-lg-5" src="${pageContext.request.contextPath}/img/locatie.JPG" />
+                                    <h4 class="mb-lg-4">Sibiu, Judetul Sibiu</h4>
+                                    <p> Strada Emil Cioran 4,<br>
+                                        Municipiul Sibiu, Judetul Sibiu,<br>
+                                        Cod Postal 550025<br><br>
+                                    </p>
+                                    <p> +(40) 0269217928 <br>
+                                        inginerie@ulbsibiu.ro
+                                    </p>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

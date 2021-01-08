@@ -46,7 +46,7 @@ public class SessionUser extends HttpServlet {
             String emailCurent = (String) session.getAttribute("emailUserCurent");
             List<UserDetails> userbyEmail = userBean.getUserbyEmail(emailCurent);
             session.setAttribute("userCurent", userbyEmail.get(0));
-
+            request.setAttribute("message", "Email or password incorrect");
             RequestDispatcher dispatcher = null;
             
             dispatcher = request.getServletContext().getRequestDispatcher("/index-mask.jsp");

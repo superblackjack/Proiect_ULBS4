@@ -10,7 +10,7 @@
 
 <t:pageTemplate pageTitle = "Edit Job">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" />   
-    <div class="row mt-lg-5">
+    <div class="row mt-lg-5  pt-lg-5">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <h1 class="title-pages">Edit Job</h1>

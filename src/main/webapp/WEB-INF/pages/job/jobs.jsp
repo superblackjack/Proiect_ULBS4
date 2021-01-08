@@ -10,7 +10,7 @@
 
 <t:pageTemplate pageTitle="Jobs">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
-    <div class="container mt-lg-5">
+    <div class="container mt-lg-5  pt-lg-5">
         <div class="row mb-lg-4">
             <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
                 <div class="col-lg-8">

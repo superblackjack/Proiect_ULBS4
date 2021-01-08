@@ -34,9 +34,7 @@
                 </div>
             </div>
             <div class="col-lg-7 pl-lg-0 pr-lg-0">
-                <div class="login-img"  style="background-image:url('${pageContext.request.contextPath}/img/login.jpg');">
-
-                </div>
+                <div class="login-img"  style="background-image:url('${pageContext.request.contextPath}/img/login.jpg');"></div>
             </div>
         </div>
     </div>

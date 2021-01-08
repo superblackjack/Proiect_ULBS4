@@ -1,12 +1,6 @@
 package com.park.proiect_ulbs4.servlet.Authentication;
 
-import com.park.proiect_ulbs4.common.UserDetails;
-import com.park.proiect_ulbs4.ejb.UserBean;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.security.Principal;
-import java.util.List;
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,10 +27,10 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nume = request.getParameter("nume");
-
-        HttpSession session = request.getSession();
-        session.setAttribute("nume", nume);
+//        String nume = request.getParameter("nume");
+//
+//        HttpSession session = request.getSession();
+//        session.setAttribute("nume", nume);
 
         request.setAttribute("message", "Email or password incorrect");
         //request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);
