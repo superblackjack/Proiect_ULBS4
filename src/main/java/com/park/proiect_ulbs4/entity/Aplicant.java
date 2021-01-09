@@ -22,13 +22,13 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "APLICANTI")
-@NamedQueries({
-    @NamedQuery(name = "Aplicanti.findAll", query = "SELECT a FROM Aplicanti a"),
-    @NamedQuery(name = "Aplicanti.findById", query = "SELECT a FROM Aplicanti a WHERE a.id = :id"),
-    @NamedQuery(name = "Aplicanti.findByIdUser", query = "SELECT a FROM Aplicanti a WHERE a.idUser = :idUser"),
-    @NamedQuery(name = "Aplicanti.findByIdJob", query = "SELECT a FROM Aplicanti a WHERE a.idJob = :idJob"),
-    @NamedQuery(name = "Aplicanti.findByDataAplicarii", query = "SELECT a FROM Aplicanti a WHERE a.dataAplicarii = :dataAplicarii"),
-}) // Pun functiile dupa in AplicantiBean pe care trebuie sa il creez
+//@NamedQueries({
+//    @NamedQuery(name = "Aplicanti.findAll", query = "SELECT a FROM Aplicanti a"),
+//    @NamedQuery(name = "Aplicanti.findById", query = "SELECT a FROM Aplicanti a WHERE a.id = :id"),
+//    @NamedQuery(name = "Aplicanti.findByIdUser", query = "SELECT a FROM Aplicanti a WHERE a.idUser = :idUser"),
+//    @NamedQuery(name = "Aplicanti.findByIdJob", query = "SELECT a FROM Aplicanti a WHERE a.idJob = :idJob"),
+//    @NamedQuery(name = "Aplicanti.findByDataAplicarii", query = "SELECT a FROM Aplicanti a WHERE a.dataAplicarii = :dataAplicarii"),
+//}) // Pun functiile dupa in AplicantiBean pe care trebuie sa il creez
 public class Aplicant implements Serializable {
 
     //Relatie Many to Many 
