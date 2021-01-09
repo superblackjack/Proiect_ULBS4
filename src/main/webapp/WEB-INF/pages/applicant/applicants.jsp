@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <t:pageTemplate pageTitle="Applicants">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" />
@@ -28,13 +29,13 @@
             <div class="row mb-lg-4">
                 <div class="col-lg-1"></div>  
                 <div class="col-lg-2 ">
-                    <label class="text-pages text-size ml-lg-3" for="post">NUME</label>
+                    <label class="text-pages text-size ml-lg-3" for="post">NUME, PRENUME</label>
                 </div>
                 <div class="col-lg-2 ">
-                    <label class="text-pages text-size ml-lg-2" for="descriere">POST</label>
+                    <label class="text-pages text-size ml-lg-2" for="descriere">EMAIL APLICANT</label>
                 </div>
                 <div class="col-lg-3">
-                    <label class="text-pages text-size ml-lg-3" for="email">DESCRIERE POST</label>
+                    <label class="text-pages text-size ml-lg-3" for="email">POST SI DESCRIERE</label>
                 </div>
                 <div class="col-lg-3">
                     <label class="text-pages text-size ml-lg-2" for="email">DATA APLICARII</label>
@@ -49,22 +50,22 @@
                     </c:if>
                     <div class="col-lg-2 ">
                         <div class="text-pages">
-                            ${applicant.idUser.getNume()}
+                            ${applicant.idUser.getNume()} ${applicant.idUser.getPrenume()}
                         </div>
                     </div>
                     <div class="col-lg-2 ">
                         <div class="text-pages">
-                            ${applicant.idJob.getPost()}
+                            ${applicant.idUser.getEmail()}
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="text-pages">                         
-                            ${applicant.idJob.getDescriere()}  
+                            ${applicant.idJob.getPost()} - ${applicant.idJob.getDescriere()}  
                         </div>          
                     </div>
                     <div class="col-lg-2 ">
                         <div class="text-pages">
-                            ${applicant.dataAplicarii}
+                            <fmt:formatDate value="${applicant.dataAplicarii}" pattern="dd-MM-yyyy"/>
                         </div>
                     </div>
                     <div class="col-lg-2 text-right">

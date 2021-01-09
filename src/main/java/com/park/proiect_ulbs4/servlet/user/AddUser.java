@@ -28,8 +28,10 @@ public class AddUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         List<UserDetails> users = userBean.getAllUsers();
         request.setAttribute("users", users);
+        
         request.getRequestDispatcher("/WEB-INF/pages/user/addUser.jsp").forward(request, response);
     }
 
