@@ -40,7 +40,7 @@ public class User implements Serializable {
     private Collection<Job> jobs;
     
     @OneToMany(mappedBy = "idUser")
-    private Collection<Aplicant> aplicanti;
+    private Collection<Applicant> aplicanti;
     
     public Integer getId() {
         return id;
@@ -98,11 +98,11 @@ public class User implements Serializable {
         this.jobs = jobs;
     }
 
-    public Collection<Aplicant> getAplicanti() {
+    public Collection<Applicant> getAplicanti() {
         return aplicanti;
     }
 
-    public void setAplicanti(Collection<Aplicant> aplicanti) {
+    public void setAplicanti(Collection<Applicant> aplicanti) {
         this.aplicanti = aplicanti;
     }
 

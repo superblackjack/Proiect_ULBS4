@@ -36,7 +36,7 @@ public class Job implements Serializable {
     private User user;
 
     @OneToMany(mappedBy = "idJob")
-    private Collection<Aplicant> aplicanti;
+    private Collection<Applicant> aplicanti;
 
     public String getPost() {
         return post;
@@ -66,11 +66,11 @@ public class Job implements Serializable {
         this.id = id;
     }
 
-    public Collection<Aplicant> getAplicanti() {
+    public Collection<Applicant> getAplicanti() {
         return aplicanti;
     }
 
-    public void setAplicanti(Collection<Aplicant> aplicanti) {
+    public void setAplicanti(Collection<Applicant> aplicanti) {
         this.aplicanti = aplicanti;
     }
 

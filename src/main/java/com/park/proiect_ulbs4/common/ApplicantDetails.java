@@ -13,14 +13,14 @@ import java.util.Date;
  *
  * @author Sebi
  */
-public class AplicantDetails implements java.io.Serializable {
+public class ApplicantDetails implements java.io.Serializable {
     
     private Integer id;
     private User idUser;
     private Job idJob;
     private Date dataAplicarii; 
 
-    public AplicantDetails(Integer id, User idUser, Job idJob, Date dataAplicarii) {
+    public ApplicantDetails(Integer id, User idUser, Job idJob, Date dataAplicarii) {
         this.id = id;
         this.idUser = idUser;
         this.idJob = idJob;
