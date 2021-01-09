@@ -32,8 +32,15 @@ public class AplicantBean {
         return new AplicantDetails(aplicant.getId(), aplicant.getIdUser(), aplicant.getIdJob(), aplicant.getDataAplicarii());
     }
 
-    public void createAplicant(Integer id, Integer idUser, Integer idJob, Date dataAplicarii) {
+    public void createAplicant(Integer id, User idUser, Job idJob, Date dataAplicarii) {
+        LOG.info("createAplicant");
+        Aplicant aplicant = new Aplicant();
+        aplicant.setId(id);
+        aplicant.setIdUser(idUser);
+        aplicant.setIdJob(idJob);
+        aplicant.setDataAplicarii(dataAplicarii);
 
+        em.persist(aplicant);
     }
 
     public List<AplicantDetails> getAllAplicants() {

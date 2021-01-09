@@ -16,14 +16,14 @@ import java.util.Date;
 public class AplicantDetails implements java.io.Serializable {
     
     private Integer id;
-    private Integer idUser;
-    private Integer idJob;
+    private User idUser;
+    private Job idJob;
     private Date dataAplicarii; 
 
     public AplicantDetails(Integer id, User idUser, Job idJob, Date dataAplicarii) {
         this.id = id;
-        this.idUser = idUser.getId();
-        this.idJob = idJob.getId();
+        this.idUser = idUser;
+        this.idJob = idJob;
         this.dataAplicarii = dataAplicarii;
     }
 
@@ -31,11 +31,11 @@ public class AplicantDetails implements java.io.Serializable {
         return id;
     }
 
-    public Integer getIdUser() {
+    public User getIdUser() {
         return idUser;
     }
 
-    public Integer getIdJob() {
+    public Job getIdJob() {
         return idJob;
     }
 
