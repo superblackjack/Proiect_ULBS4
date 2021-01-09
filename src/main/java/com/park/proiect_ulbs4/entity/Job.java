@@ -1,6 +1,7 @@
 package com.park.proiect_ulbs4.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +34,9 @@ public class Job implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_KEY")
     private User user;
+
+    @OneToMany(mappedBy = "idJob")
+    private Collection<Aplicant> aplicanti;
 
     public String getPost() {
         return post;
@@ -59,6 +64,14 @@ public class Job implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Collection<Aplicant> getAplicanti() {
+        return aplicanti;
+    }
+
+    public void setAplicanti(Collection<Aplicant> aplicanti) {
+        this.aplicanti = aplicanti;
     }
 
     @Override

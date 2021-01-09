@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -37,8 +38,9 @@ public class User implements Serializable {
     @JsonbTransient
     @OneToMany(mappedBy = "user")
     private Collection<Job> jobs;
-
-    //private Collection<Aplicant> aplicanti;
+    
+    @OneToMany(mappedBy = "idUser")
+    private Collection<Aplicant> aplicanti;
     
     public Integer getId() {
         return id;
@@ -94,6 +96,14 @@ public class User implements Serializable {
 
     public void setJobs(Collection<Job> jobs) {
         this.jobs = jobs;
+    }
+
+    public Collection<Aplicant> getAplicanti() {
+        return aplicanti;
+    }
+
+    public void setAplicanti(Collection<Aplicant> aplicanti) {
+        this.aplicanti = aplicanti;
     }
 
     @Override

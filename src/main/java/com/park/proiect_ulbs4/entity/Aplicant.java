@@ -1,11 +1,10 @@
 package com.park.proiect_ulbs4.entity;
 
-import com.park.proiect_ulbs4.servlet.job.Jobs;
-import com.park.proiect_ulbs4.servlet.user.Users;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,12 +32,13 @@ public class Aplicant implements Serializable {
     //Relatie Many to Many 
     // - Mai multi Useri pot aplica pentru un Job
     // - Un singur User poate aplica la mai multe Joburi
-    @JoinColumn(name = "ID_JOB", referencedColumnName = "ID")
-    @ManyToOne
-    private Jobs idJob;
-    @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
-    @ManyToOne
-    private Users idUser;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_JOB")
+    private Job idJob;
+    
+    @JoinColumn(name = "ID_USER")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User idUser;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -54,21 +54,22 @@ public class Aplicant implements Serializable {
         this.id = id;
     }
 
-    public Users getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Users idUser) {
-        this.idUser = idUser;
-    }
-
-    public Jobs getIdJob() {
+    public Job getIdJob() {
         return idJob;
     }
 
-    public void setIdJob(Jobs idJob) {
+    public void setIdJob(Job idJob) {
         this.idJob = idJob;
     }
+
+    public User getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
+    }
+
 
     public Date getDataAplicarii() {
         return dataAplicarii;
