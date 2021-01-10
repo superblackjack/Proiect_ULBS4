@@ -35,13 +35,15 @@ public class User implements Serializable {
 
     private String position;
 
+    private String CV;
+
     @JsonbTransient
     @OneToMany(mappedBy = "user")
     private Collection<Job> jobs;
-    
+
     @OneToMany(mappedBy = "idUser")
     private Collection<Applicant> aplicanti;
-    
+
     public Integer getId() {
         return id;
     }
@@ -100,6 +102,14 @@ public class User implements Serializable {
 
     public Collection<Applicant> getAplicanti() {
         return aplicanti;
+    }
+
+    public String getCV() {
+        return CV;
+    }
+
+    public void setCV(String CV) {
+        this.CV = CV;
     }
 
     public void setAplicanti(Collection<Applicant> aplicanti) {

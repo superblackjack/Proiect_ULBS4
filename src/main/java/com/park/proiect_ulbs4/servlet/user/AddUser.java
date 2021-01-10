@@ -43,10 +43,11 @@ public class AddUser extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String position = request.getParameter("position");
+        String CV = request.getParameter("CV");
 
         String passwordSha256 = PasswordUtil.convertToSha256(password);
 
-        userBean.createUser(nume, prenume, email, passwordSha256, position);
+        userBean.createUser(nume, prenume, email, passwordSha256, position, CV);
 
         response.sendRedirect(request.getContextPath() + "/Users");
     }
