@@ -12,24 +12,27 @@ public class UserDetails {
     private String email;
     private String password;
     private String position;
+    private String CV;
 
-    public UserDetails(Integer id, String nume, String prenume, String email, String position) {
+    public UserDetails(Integer id, String nume, String prenume, String email, String position, String CV) {
         this.id = id;
         this.nume = nume;
         this.prenume = prenume;
         this.email = email;
         this.position = position;
+        this.CV = CV;
     }
 
-    public UserDetails(Integer id, String nume, String prenume, String email, String password, String position) {
+    public UserDetails(Integer id, String nume, String prenume, String email, String password, String position, String CV) {
         this.id = id;
         this.nume = nume;
         this.prenume = prenume;
         this.email = email;
         this.password = password;
         this.position = position;
+        this.CV = CV;
     }
-
+    
     public Integer getId() {
         return id;
     }
@@ -52,5 +55,9 @@ public class UserDetails {
 
     public String getPosition() {
         return position;
+    }
+
+    public String getCV() {
+        return CV;
     }
 }

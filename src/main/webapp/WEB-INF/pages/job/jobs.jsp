@@ -47,7 +47,6 @@
                         <label class="text-pages text-size ml-lg-5" for="email">EMAIL</label>
                     </div>
                 </c:if>
-                    
             </div>
             <c:forEach var="job" items="${jobs}" varStatus="status">
                 <div class="row mb-lg-3">
@@ -73,10 +72,6 @@
                             </div>
                         </div>
                     </c:if>
-                        
-                    <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
-                        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Apply?id=${job.id}" role="button">Apply</a>
-                    </c:if>    
                     <div class="col-lg-2 text-right">
                         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Update?id=${job.id}" role="button">Edit Job</a>

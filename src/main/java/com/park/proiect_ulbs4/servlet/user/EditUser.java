@@ -56,6 +56,7 @@ public class EditUser extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String position = request.getParameter("position");
+        String CV = request.getParameter("CV");
         int userId = Integer.parseInt(request.getParameter("user_id"));
         //int jobId = Integer.parseInt(request.getParameter("job_id"));
         
@@ -66,7 +67,7 @@ public class EditUser extends HttpServlet {
         request.setAttribute("ceva", ceva);
         String passwordSha256 = PasswordUtil.convertToSha256(password);
         
-        userBean.updateUser(userId, nume, prenume, email, passwordSha256, position);
+        userBean.updateUser(userId, nume, prenume, email, passwordSha256, position, CV);
 
         response.sendRedirect(request.getContextPath() + "/Users");
     }
