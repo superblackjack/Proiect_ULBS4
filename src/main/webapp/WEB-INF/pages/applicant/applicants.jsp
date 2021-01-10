@@ -70,6 +70,7 @@
                     </div>
                     <div class="col-lg-2 text-right">
                         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Applicants/View?id=${applicant.id}" role="button">View Applicant</a>
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Applicants/Update?id=${applicant.id}" role="button">Edit Applicant</a>
                         </c:if>
                     </div>
