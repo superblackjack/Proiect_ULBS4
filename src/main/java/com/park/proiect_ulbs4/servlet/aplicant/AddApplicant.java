@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sebi
  */
-@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"AdminRole"}))
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"AdminRole","ClientRole"}))
 @WebServlet(name = "AddApplicant", urlPatterns = {"/Applicant/Create"})
 public class AddApplicant extends HttpServlet {
 
@@ -31,35 +31,20 @@ public class AddApplicant extends HttpServlet {
     @Inject
     ApplicantBean applicantBean;
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AddApplicant</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AddApplicant at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+   
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+       
 
-        request.getRequestDispatcher("/WEB-INF/pages/applicant/addApplicant.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/job/jobs.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.sendRedirect(request.getContextPath()+"/Jobs");
     }
 
     @Override
