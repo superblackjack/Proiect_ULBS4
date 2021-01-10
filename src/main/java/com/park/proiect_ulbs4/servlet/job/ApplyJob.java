@@ -10,7 +10,6 @@ import com.park.proiect_ulbs4.ejb.ApplicantBean;
 import com.park.proiect_ulbs4.ejb.JobBean;
 import com.park.proiect_ulbs4.ejb.UserBean;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.HttpConstraint;

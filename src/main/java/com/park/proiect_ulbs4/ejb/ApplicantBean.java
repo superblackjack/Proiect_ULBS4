@@ -32,10 +32,10 @@ public class ApplicantBean {
         return new ApplicantDetails(applicant.getId(), applicant.getIdUser(), applicant.getIdJob(), applicant.getDataAplicarii());
     }
 
-    public void createApplicant(Integer id, User idUser, Job idJob, Date dataAplicarii) {
+    public void createApplicant(User idUser, Job idJob, Date dataAplicarii) {
         LOG.info("createApplicant");
         Applicant applicant = new Applicant();
-        applicant.setId(id);
+        //applicant.setId(id); 
         applicant.setIdUser(idUser);
         applicant.setIdJob(idJob);
         applicant.setDataAplicarii(dataAplicarii);

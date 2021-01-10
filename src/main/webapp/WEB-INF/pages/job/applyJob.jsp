@@ -31,7 +31,9 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Apply</button>
+            <input type="hidden" name="curentUserId" value="${userCurent.getId()}">
+            <input type="hidden" name="curentJobId" value="${jobApply.id}">
+            <button class="btn btn-primary btn-lg btn-block" href="${pageContext.request.contextPath}/Jobs/Update?id=${jobApply.id}" type="submit">Apply</button>
         </div>
     </form>
 </div>
