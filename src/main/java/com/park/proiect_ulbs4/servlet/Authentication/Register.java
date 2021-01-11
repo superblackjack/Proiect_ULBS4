@@ -5,16 +5,11 @@
  */
 package com.park.proiect_ulbs4.servlet.Authentication;
 
-import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.UserBean;
 import com.park.proiect_ulbs4.util.PasswordUtil;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,11 +41,11 @@ public class Register extends HttpServlet {
         String password = request.getParameter("password");
         String position = request.getParameter("position");
         String CV = request.getParameter("CV");
-
+        //String msg=".";
         String passwordSha256 = PasswordUtil.convertToSha256(password);
 
         userBean.createUser(nume, prenume, email, passwordSha256, position, CV);
-
+        //request.setAttribute("message", msg);
         response.sendRedirect(request.getContextPath() + "/Login");
 
     }

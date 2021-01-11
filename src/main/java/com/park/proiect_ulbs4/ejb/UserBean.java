@@ -4,7 +4,6 @@ import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.EJBException;
@@ -27,7 +26,7 @@ public class UserBean {
 
     public UserDetails findByID(Integer userId) {
         User user = em.find(User.class, userId);
-        return new UserDetails(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getPassword(), user.getPosition(),user.getCV());
+        return new UserDetails(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getPassword(), user.getPosition(), user.getCV());
     }
 
     public List<UserDetails> getAllUsers() {
@@ -122,17 +121,27 @@ public class UserBean {
     }
 
     public void createUser(String nume, String prenume, String email, String passwordSha256, String position, String CV) {
-        LOG.info("createUser");
-        User user = new User();
-        user.setNume(nume);
-        user.setPrenume(prenume);
-        user.setEmail(email);
-        user.setPassword(passwordSha256);
-        user.setPosition(position);
-        user.setCV(CV);
-        
+        boolean existInDB = false;
+        List<UserDetails> totiUserii = getAllUsers();
 
-        em.persist(user);
+        for (int i = 0; i < totiUserii.size(); i++) {
+            if (totiUserii.get(i).getEmail().equals(email)) {
+                existInDB = true;
+            }
+        }
+        if (!existInDB) {
+            LOG.info("createUser");
+            User user = new User();
+            user.setNume(nume);
+            user.setPrenume(prenume);
+            user.setEmail(email);
+            user.setPassword(passwordSha256);
+            user.setPosition(position);
+            user.setCV(CV);
+
+            em.persist(user);
+        } else {
+        }
     }
 
     public void updateUser(Integer userId, String nume, String prenume, String email, String passwordSha256, String position, String CV) {
@@ -161,6 +170,4 @@ public class UserBean {
             em.remove(user);
         }
     }
-    
-   
 }

@@ -14,6 +14,11 @@
             <div class="col-lg-5 pl-lg-0 pr-lg-0">
                 <div class="login-box">
                     <div class="vm">
+                        <c:if test="${message != null}">
+                            <div class="alert alert-warning" role="alert">
+                                ${message}
+                            </div>
+                        </c:if>
                         <form class="needs-validation" novalidate method="POST" action="${pageContext.request.contextPath}/Register">
                             <h1 class="h3 mb-lg-4 font-weight-normal login-title">Register</h1>
                             <div class="text-color">
