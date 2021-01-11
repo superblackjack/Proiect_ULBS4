@@ -43,7 +43,9 @@ public class Register extends HttpServlet {
         String CV = request.getParameter("CV");
         //String msg=".";
         String passwordSha256 = PasswordUtil.convertToSha256(password);
-
+        
+        nume = nume.substring(0,1).toUpperCase() + nume.substring(1).toLowerCase();
+        prenume = prenume.substring(0,1).toUpperCase() + prenume.substring(1).toLowerCase();
         userBean.createUser(nume, prenume, email, passwordSha256, position, CV);
         //request.setAttribute("message", msg);
         response.sendRedirect(request.getContextPath() + "/Login");

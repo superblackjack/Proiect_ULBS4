@@ -19,10 +19,10 @@
                 </div>
                 <div class="col-lg-4 text-right">
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Applicants/Create" role="button">Add Applicant</a>
+                        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}" role="button">Accept Applicants</a>
                     </c:if>
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit"> Delete Applicants</button>
+                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit"> Refuse Applicants</button>
                     </c:if>
                 </div>
             </div>
@@ -71,7 +71,6 @@
                     <div class="col-lg-2 text-right">
                         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Applicants/View?id=${applicant.id}" role="button">View Applicant</a>
-                            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Applicants/Update?id=${applicant.id}" role="button">Edit Applicant</a>
                         </c:if>
                     </div>
                 </div>
