@@ -73,9 +73,15 @@
                         </div>
                     </c:if>
                     <div class="col-lg-2 text-right">
-                            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Apply?id=${job.id}" role="button">Apply</a>
-                        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                        <c:if test="${not pageContext.request.isUserInRole('ClientRole')}">  
+                            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Login" role="button">View Job</a>
+                        </c:if>
+
+                        <c:if test="${pageContext.request.isUserInRole('ClientRole')}">  
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Apply?id=${job.id}" role="button">View Job</a>
+                        </c:if>  
+
+                        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">  
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Update?id=${job.id}" role="button">Edit Job</a>
                         </c:if>
                     </div>

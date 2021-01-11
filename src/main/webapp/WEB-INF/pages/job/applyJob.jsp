@@ -10,6 +10,7 @@
 
 <t:pageTemplate pageTitle="Jobs">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
+    <div>
     <form method="POST" action="${pageContext.request.contextPath}/Applicant/Create">
         <div class="container mt-lg-5  pt-lg-5">
             <div class="row mb-lg-4">
