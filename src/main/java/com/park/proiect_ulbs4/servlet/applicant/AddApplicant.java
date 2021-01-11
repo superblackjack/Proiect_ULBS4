@@ -1,4 +1,4 @@
-package com.park.proiect_ulbs4.servlet.aplicant;
+package com.park.proiect_ulbs4.servlet.applicant;
 
 import com.park.proiect_ulbs4.ejb.ApplicantBean;
 import com.park.proiect_ulbs4.ejb.JobBean;
