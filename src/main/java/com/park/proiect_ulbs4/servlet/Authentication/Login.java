@@ -15,12 +15,11 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);
-            
+        request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);
+
     }
 
     @Override
@@ -31,7 +30,6 @@ public class Login extends HttpServlet {
 //
 //        HttpSession session = request.getSession();
 //        session.setAttribute("nume", nume);
-
         request.setAttribute("message", "Email or password incorrect");
         request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);
     }

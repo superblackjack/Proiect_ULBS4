@@ -121,15 +121,6 @@ public class UserBean {
     }
 
     public void createUser(String nume, String prenume, String email, String passwordSha256, String position, String CV) {
-        boolean existInDB = false;
-        List<UserDetails> totiUserii = getAllUsers();
-
-        for (int i = 0; i < totiUserii.size(); i++) {
-            if (totiUserii.get(i).getEmail().equals(email)) {
-                existInDB = true;
-            }
-        }
-        if (!existInDB) {
             LOG.info("createUser");
             User user = new User();
             user.setNume(nume);
@@ -140,8 +131,6 @@ public class UserBean {
             user.setCV(CV);
 
             em.persist(user);
-        } else {
-        }
     }
 
     public void updateUser(Integer userId, String nume, String prenume, String email, String passwordSha256, String position, String CV) {

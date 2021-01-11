@@ -5,9 +5,12 @@
  */
 package com.park.proiect_ulbs4.servlet.Authentication;
 
+import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.UserBean;
+import com.park.proiect_ulbs4.entity.User;
 import com.park.proiect_ulbs4.util.PasswordUtil;
 import java.io.IOException;
+import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +32,6 @@ public class Register extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/pages/authentication/register.jsp").forward(request, response);
-
     }
 
     @Override
@@ -41,17 +43,28 @@ public class Register extends HttpServlet {
         String password = request.getParameter("password");
         String position = request.getParameter("position");
         String CV = request.getParameter("CV");
-        //String msg=".";
         String passwordSha256 = PasswordUtil.convertToSha256(password);
 
-        userBean.createUser(nume, prenume, email, passwordSha256, position, CV);
-        //request.setAttribute("message", msg);
-        response.sendRedirect(request.getContextPath() + "/Login");
+        boolean existInDB = false;
+        List<UserDetails> totiUserii = userBean.getAllUsers();
 
+        for (int i = 0; i < totiUserii.size(); i++) {
+            if (totiUserii.get(i).getEmail().equals(email)) {
+                existInDB = true;
+            }
+        }
+        if (!existInDB) {
+            userBean.createUser(nume, prenume, email, passwordSha256, position, CV);
+            request.setAttribute("SuccesfulRegister","You have successfully registered");
+            //response.sendRedirect(request.getContextPath() + "/Login");
+            request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);
+        } else {
+            request.setAttribute("message", "You already have an account created with this email");
+            request.getRequestDispatcher("/WEB-INF/pages/authentication/register.jsp").forward(request, response);
+        }
     }
 
     public String getServletInfo() {
         return "Register v1.0";
     }
-
 }

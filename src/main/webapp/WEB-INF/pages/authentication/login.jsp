@@ -14,6 +14,11 @@
             <div class="col-lg-5 pl-lg-0 pr-lg-0">
                 <div class="login-box">
                     <div class="vm">
+                        <c:if test="${SuccesfulRegister != null}">
+                            <div class="alert alert-warning" role="alert">
+                                ${SuccesfulRegister}
+                            </div>
+                        </c:if>
                         <c:if test="${message != null}">
                             <div class="alert alert-warning" role="alert">
                                 ${message}
