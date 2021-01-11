@@ -6,6 +6,7 @@ import com.park.proiect_ulbs4.entity.Applicant;
 import com.park.proiect_ulbs4.entity.Job;
 import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -66,6 +67,13 @@ public class ApplicantBean {
         return detailsList;
     }
 
+    public void deleteApplicantsByIds(Collection<Integer> ids) {
+        LOG.info("deleteJobsByIds");
+        for (Integer id : ids) {
+            Applicant applicant = em.find(Applicant.class, id);
+            em.remove(applicant);
+        }
+    }
 //    public void createApplicant(Integer id, UserDetails user, Job job, Date dataAplicarii) {
 //        LOG.info("createApplicant");
 //        Applicant applicant = new Applicant();

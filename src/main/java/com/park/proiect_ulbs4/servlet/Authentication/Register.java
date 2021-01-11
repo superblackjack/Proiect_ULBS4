@@ -44,7 +44,10 @@ public class Register extends HttpServlet {
         String position = request.getParameter("position");
         String CV = request.getParameter("CV");
         String passwordSha256 = PasswordUtil.convertToSha256(password);
-
+        
+        nume = nume.substring(0,1).toUpperCase() + nume.substring(1).toLowerCase();
+        prenume = prenume.substring(0,1).toUpperCase() + prenume.substring(1).toLowerCase();
+        
         boolean existInDB = false;
         List<UserDetails> totiUserii = userBean.getAllUsers();
 
@@ -62,6 +65,7 @@ public class Register extends HttpServlet {
             request.setAttribute("message", "You already have an account created with this email");
             request.getRequestDispatcher("/WEB-INF/pages/authentication/register.jsp").forward(request, response);
         }
+        //response.sendRedirect(request.getContextPath() + "/Login");
     }
 
     public String getServletInfo() {

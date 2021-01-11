@@ -4,6 +4,7 @@ import com.park.proiect_ulbs4.common.ApplicantDetails;
 import com.park.proiect_ulbs4.ejb.ApplicantBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -52,7 +53,15 @@ public class Applicants extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+        String[] applicantIdsAsString = request.getParameterValues("applicant_ids");
+        if (applicantIdsAsString != null) {
+            List<Integer> applicantIds = new ArrayList<>();
+            for (String applicantIdAsString : applicantIdsAsString) {
+                applicantIds.add(Integer.parseInt(applicantIdAsString));
+            }
+            applicantBean.deleteApplicantsByIds(applicantIds);
+        }
+        response.sendRedirect(request.getContextPath() + "/Applicants");
     }
 
     @Override

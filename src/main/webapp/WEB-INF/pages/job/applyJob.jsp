@@ -20,7 +20,7 @@
             </div>
             <div class="row mb-lg-4">
                 <div class="col-lg-8">
-                    <h2 class="description"> ${jobApply.descriere} </h2>
+                    <h2> ${jobApply.descriere} </h2>
                 </div>
             </div>
             <div class="row">
