@@ -6,6 +6,7 @@
     <class>com.park.proiect_ulbs4.entity.Job</class>
     <class>com.park.proiect_ulbs4.entity.User</class>
     <class>com.park.proiect_ulbs4.entity.Aplicant</class>
+    <class>com.park.proiect_ulbs4.entity.CV</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/eJobs"/>
       <property name="javax.persistence.jdbc.user" value="eJobsUser"/>

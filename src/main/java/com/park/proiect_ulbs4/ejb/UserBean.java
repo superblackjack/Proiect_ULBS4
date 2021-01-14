@@ -1,6 +1,8 @@
 package com.park.proiect_ulbs4.ejb;
 
+import com.park.proiect_ulbs4.common.CvDetails;
 import com.park.proiect_ulbs4.common.UserDetails;
+import com.park.proiect_ulbs4.entity.CV;
 import com.park.proiect_ulbs4.entity.User;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,6 +13,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -26,7 +29,7 @@ public class UserBean {
 
     public UserDetails findByID(Integer userId) {
         User user = em.find(User.class, userId);
-        return new UserDetails(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getPassword(), user.getPosition(), user.getCV());
+        return new UserDetails(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getPassword(), user.getPosition(), user.getCurriculum());
     }
 
     public List<UserDetails> getAllUsers() {
@@ -114,26 +117,51 @@ public class UserBean {
                     user.getPrenume(),
                     user.getEmail(),
                     user.getPosition(),
-                    user.getCV());
+                    user.getCurriculum());
             detailsList.add(userDetails);
         }
         return detailsList;
     }
 
-    public void createUser(String nume, String prenume, String email, String passwordSha256, String position, String CV) {
-            LOG.info("createUser");
-            User user = new User();
-            user.setNume(nume);
-            user.setPrenume(prenume);
-            user.setEmail(email);
-            user.setPassword(passwordSha256);
-            user.setPosition(position);
-            user.setCV(CV);
+    public void addCVToUser(Integer userId, String filename, String fileType, byte[] fileContent) {
+        LOG.info("addCVToUser");
+        CV cv = new CV();
+        cv.setFilename(filename);
+        cv.setFileType(fileType);
+        cv.setFileContent(fileContent);
 
-            em.persist(user);
+        User user = em.find(User.class, userId);
+        user.setCv(cv);
+
+        cv.setUser(user);
+        em.persist(cv);
     }
 
-    public void updateUser(Integer userId, String nume, String prenume, String email, String passwordSha256, String position, String CV) {
+    public CvDetails findCvByUserId(Integer userId) {
+        TypedQuery<CV> typedQuery = em.createQuery("SELECT c FROM CV c where c.user.id = :id", CV.class).
+                setParameter("id", userId);
+        List<CV> cvs = typedQuery.getResultList();
+        if (cvs.isEmpty()) {
+            return null;
+        }
+        CV cv = cvs.get(0);
+        return new CvDetails(cv.getId(), cv.getFilename(), cv.getFileType(), cv.getFileContent());
+    }
+
+    public void createUser(String nume, String prenume, String email, String passwordSha256, String position, String curriculum) {
+        LOG.info("createUser");
+        User user = new User();
+        user.setNume(nume);
+        user.setPrenume(prenume);
+        user.setEmail(email);
+        user.setPassword(passwordSha256);
+        user.setPosition(position);
+        user.setCurriculum(curriculum);
+
+        em.persist(user);
+    }
+
+    public void updateUser(Integer userId, String nume, String prenume, String email, String passwordSha256, String position, String curriculum) {
         LOG.info("updateUser");
 
         User user = em.find(User.class, userId);
@@ -142,7 +170,7 @@ public class UserBean {
         user.setEmail(email);
         user.setPassword(passwordSha256);
         user.setPosition(position);
-        user.setCV(CV);
+        user.setCurriculum(curriculum);
 
         //Job oldJob = user.getJobs();
         //oldUser.getJobs().remove(user);

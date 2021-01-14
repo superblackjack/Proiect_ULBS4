@@ -1,15 +1,24 @@
 package com.park.proiect_ulbs4.entity;
 
+import java.io.File;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -21,6 +30,8 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @NotNull
+    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     public Integer id;
@@ -35,7 +46,7 @@ public class User implements Serializable {
 
     private String position;
 
-    private String CV;
+    private String curriculum;
 
     @JsonbTransient
     @OneToMany(mappedBy = "user")
@@ -43,6 +54,9 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "idUser")
     private Collection<Applicant> aplicanti;
+    
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private CV cv;
 
     public Integer getId() {
         return id;
@@ -104,16 +118,50 @@ public class User implements Serializable {
         return aplicanti;
     }
 
-    public String getCV() {
-        return CV;
-    }
-
-    public void setCV(String CV) {
-        this.CV = CV;
-    }
-
     public void setAplicanti(Collection<Applicant> aplicanti) {
         this.aplicanti = aplicanti;
+    }
+
+    public String getCurriculum() {
+        return curriculum;
+    }
+
+    public void setCurriculum(String curriculum) {
+        this.curriculum = curriculum;
+    }
+    
+    public CV getCv() {
+        return cv;
+    }
+
+    public void setCv(CV cv) {
+        this.cv = cv;
+    }
+    
+    public String obtainCV() {
+        URL s = this.getClass().getProtectionDomain().getCodeSource().getLocation();
+        String p = s.getPath();
+        String returnat = "";
+        if (p.contains("/")) {
+            p = p.replace("WEB-INF/classes/com/park/proiect_ulbs4/entity/User.class", "cv/");
+            p = p.replace("WEB-INF/classes/com/park/proiect_ulbs4/entity/User.class", "cv/");
+            returnat += "cv/";
+        }
+        p += id.toString() + ".pdf";
+        returnat += id.toString() + ".pdf";
+
+        try {
+            p = java.net.URLDecoder.decode(p, StandardCharsets.UTF_8.name());
+        } catch (UnsupportedEncodingException e) {
+            // Nu se va intampla deoarece valoarea provine din propriul JDK - StandardCharsets
+        }
+        
+        File file = new File(p);
+        if(file.exists()){
+            return returnat;
+        }else{
+            return "#";
+        }
     }
 
     @Override

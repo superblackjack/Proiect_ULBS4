@@ -42,7 +42,7 @@ public class Register extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String position = request.getParameter("position");
-        String CV = request.getParameter("CV");
+        String curriculum = request.getParameter("curriculum");
         String passwordSha256 = PasswordUtil.convertToSha256(password);
         
         nume = nume.substring(0,1).toUpperCase() + nume.substring(1).toLowerCase();
@@ -57,7 +57,7 @@ public class Register extends HttpServlet {
             }
         }
         if (!existInDB) {
-            userBean.createUser(nume, prenume, email, passwordSha256, position, CV);
+            userBean.createUser(nume, prenume, email, passwordSha256, position, curriculum);
             request.setAttribute("SuccesfulRegister","You have successfully registered");
             //response.sendRedirect(request.getContextPath() + "/Login");
             request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);

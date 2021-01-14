@@ -32,6 +32,13 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/ContactUs">Contact Us</a>
             </li>
         </ul>
+        <c:if test = "${pageContext.request.isUserInRole('ClientRole')}">
+            <ul class="navbar-nav ml-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/uploadCV?id=${userCurent.getId()}">My Account</a>
+                </li>
+            </ul>
+        </c:if>
         <ul class="navbar-nav ml-lg-3">
             <li class="nav-item">
                 <c:choose>
