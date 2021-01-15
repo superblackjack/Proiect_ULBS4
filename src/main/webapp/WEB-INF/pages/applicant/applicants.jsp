@@ -40,6 +40,9 @@
                 <div class="col-lg-3">
                     <label class="text-pages text-size ml-lg-2" for="email">DATA APLICARII</label>
                 </div>
+                <div class="col-lg-3">
+                    <label class="text-pages text-size ml-lg-2" for="email">CV APLICANT</label>
+                </div>
             </div>              
             <c:forEach var="applicant" items="${applicants}" varStatus="status">
                 <div class="row mb-lg-3">
@@ -48,6 +51,10 @@
                             <input type="checkbox" name="applicant_ids" value="${applicant.id}" />
                         </div>
                     </c:if>
+                    <h2>Ba ${CVPATH}
+                    </h2>
+                    <h2>Tu ${CVPATH2}
+                    </h2>
                     <div class="col-lg-2 ">
                         <div class="text-pages">
                             ${applicant.idUser.getNume()} ${applicant.idUser.getPrenume()}
@@ -68,6 +75,12 @@
                             <fmt:formatDate value="${applicant.dataAplicarii}" pattern="dd-MM-yyyy"/>
                         </div>
                     </div>
+                    <div class="col-lg-3">
+                        <div class="text-pages">                         
+                            <a class="nav-link" href="${pageContext.request.contextPath}/viewCV?id=${applicant.idUser.id}">View CV</a>  
+                        </div>          
+                    </div>
+                    <input type="hidden" name="UserIdOnClick" value="${applicant.idUser.getId()}">
                     <div class="col-lg-2 text-right">
                         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Applicants/View?id=${applicant.id}" role="button">View Applicant</a>

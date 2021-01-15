@@ -73,13 +73,13 @@ public class uploadCV extends HttpServlet {
         Integer userId = user.getId();
                 
         Part filePart = request.getPart("file");                                                            //PDF
-        String fileName2 = filePart.getSubmittedFileName();                                                 //PDF
+        //String fileName2 = filePart.getSubmittedFileName();                                                 //PDF
         String fileType = filePart.getContentType();                                                        //PDF
         long fileSize = filePart.getSize();                                                                 //PDF
         byte[] fileContent = new byte[(int) fileSize];                                                      //PDF
         filePart.getInputStream().read(fileContent);                                                        //PDF
         
-        userBean.addCVToUser(userId, fileName2, fileType, fileContent);                                     //PDF
+        userBean.addCVToUser(userId, fileName, fileType, fileContent);                                     //PDF
         
         File fileSaveDir = new File(uploadFilePath);                                                        //Sebi
         if(!fileSaveDir.exists()){                                                                          //Sebi

@@ -4,6 +4,10 @@ import com.park.proiect_ulbs4.common.CvDetails;
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.entity.CV;
 import com.park.proiect_ulbs4.entity.User;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -146,6 +150,31 @@ public class UserBean {
         }
         CV cv = cvs.get(0);
         return new CvDetails(cv.getId(), cv.getFilename(), cv.getFileType(), cv.getFileContent());
+    }
+    
+    public String obtainCV(Integer userId, String nume, String prenume) {
+        URL s = this.getClass().getProtectionDomain().getCodeSource().getLocation();
+        String p = s.getPath();
+        String returnat = "";
+        if (p.contains("/")) {
+            p = p.replace("WEB-INF/classes/com/park/proiect_ulbs4/ejb/UserBean.class", "/cv/"); // "../../src/main/webapp/cv/" in loc de "cv/"
+            returnat += "/cv/";
+        }
+        p += userId.toString() + "_" + nume + "_" + prenume + ".pdf";
+        returnat += userId.toString() + "_" + nume + "_" + prenume + ".pdf";
+
+        try {
+            p = java.net.URLDecoder.decode(p, StandardCharsets.UTF_8.name());
+        } catch (UnsupportedEncodingException e) {
+            // Nu se va intampla deoarece valoarea provine din propriul JDK - StandardCharsets
+        }
+        //return returnat;
+        File file = new File(p);
+        if(file.exists()){
+            return returnat;
+        }else{
+            return "#";
+        }
     }
 
     public void createUser(String nume, String prenume, String email, String passwordSha256, String position, String curriculum) {

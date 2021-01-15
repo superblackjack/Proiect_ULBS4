@@ -137,32 +137,6 @@ public class User implements Serializable {
     public void setCv(CV cv) {
         this.cv = cv;
     }
-    
-    public String obtainCV() {
-        URL s = this.getClass().getProtectionDomain().getCodeSource().getLocation();
-        String p = s.getPath();
-        String returnat = "";
-        if (p.contains("/")) {
-            p = p.replace("WEB-INF/classes/com/park/proiect_ulbs4/entity/User.class", "cv/");
-            p = p.replace("WEB-INF/classes/com/park/proiect_ulbs4/entity/User.class", "cv/");
-            returnat += "cv/";
-        }
-        p += id.toString() + ".pdf";
-        returnat += id.toString() + ".pdf";
-
-        try {
-            p = java.net.URLDecoder.decode(p, StandardCharsets.UTF_8.name());
-        } catch (UnsupportedEncodingException e) {
-            // Nu se va intampla deoarece valoarea provine din propriul JDK - StandardCharsets
-        }
-        
-        File file = new File(p);
-        if(file.exists()){
-            return returnat;
-        }else{
-            return "#";
-        }
-    }
 
     @Override
     public int hashCode() {
