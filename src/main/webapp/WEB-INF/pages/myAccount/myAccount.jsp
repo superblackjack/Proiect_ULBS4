@@ -16,14 +16,14 @@
             <h1 class="title-pages">${userCurent.getNume()} ${userCurent.getPrenume()}</h1>
             <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data" action="${pageContext.request.contextPath}/uploadCV">
                 <div class="mb-lg-3">
-                    <label class="text-color" for="post">Upload your CV</label>
-                    <input class="btn btn-primary btn-lg btn-block mt-lg-4" type="file" name="file" required>
+                    <label class="text-color" for="file">Upload your CV</label>
+                    <input type="file" name="file" required>
                     <div class="invalid-feedback">
                         CV is required.
                     </div>
                 </div>
                 <hr class="mb-4">
-                <input type="hidden" name="user_id" value = "${userCurent.getId()}">
+                <input type="hidden" name="user_id" value="${userCurent.getId()}">
                 <button class="btn btn-primary btn-lg btn-block mt-lg-4" type="submit">Upload</button>
             </form>
         </div>

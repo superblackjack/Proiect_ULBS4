@@ -1,4 +1,4 @@
-package com.park.proiect_ulbs4.servlet.CV;
+package com.park.proiect_ulbs4.CV;
 
 import com.park.proiect_ulbs4.common.CvDetails;
 import com.park.proiect_ulbs4.ejb.UserBean;

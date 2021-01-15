@@ -1,4 +1,4 @@
-package com.park.proiect_ulbs4.servlet.CV;
+package com.park.proiect_ulbs4.CV;
 
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.UserBean;
@@ -62,19 +62,17 @@ public class uploadCV extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-//        String applicationPath = request.getServletContext().getRealPath("");                               //Sebi
-//        String uploadFilePath = applicationPath + File.separator + "cv";                                    //Sebi
-//        User user = (User) session.getAttribute("userCurent");                                              //Sebi
-//        Part o = request.getPart("cv");                                                                     //Sebi
-//        InputStream fileInputStream = o.getInputStream();                                                   //Sebi
-//        String fileName = user.getId().toString() + ".pdf";                                                 //Sebi
+        String uploadFilePath = request.getServletContext().getRealPath("../../src/main/webapp/cv");                             //Sebi
+        HttpSession session = request.getSession();                                                         //Sebi
+        UserDetails user = (UserDetails) session.getAttribute("userCurent");                                //Sebi
+        Part o = request.getPart("file");                                                                   //Sebi
+        InputStream fileInputStream = o.getInputStream();                                                   //Sebi
+        String fileName = user.getId().toString() + "_" + user.getNume() + "_" + user.getPrenume() + ".pdf";//Sebi
         
-        String userIdAsString = request.getParameter("user_id");
-        Integer userId = Integer.parseInt(userIdAsString);
         
-        //Integer userId = user.getId();                                                                      //PDF
-        
-        Part filePart = request.getPart("file");                                                           //PDF
+        Integer userId = user.getId();
+                
+        Part filePart = request.getPart("file");                                                            //PDF
         String fileName2 = filePart.getSubmittedFileName();                                                 //PDF
         String fileType = filePart.getContentType();                                                        //PDF
         long fileSize = filePart.getSize();                                                                 //PDF
@@ -83,18 +81,18 @@ public class uploadCV extends HttpServlet {
         
         userBean.addCVToUser(userId, fileName2, fileType, fileContent);                                     //PDF
         
-//        File fileSaveDir = new File(uploadFilePath);                                                        //Sebi
-//        if(!fileSaveDir.exists()){                                                                          //Sebi
-//            fileSaveDir.mkdirs();                                                                           //Sebi
-//        }                                                                                                   //Sebi
-//        
-//        File fileToSave = new File(uploadFilePath + File.separator + fileName);                             //Sebi
-//        Files.copy(fileInputStream, fileToSave.toPath(), StandardCopyOption.REPLACE_EXISTING);              //Sebi
-//        
-//        
-//        
+        File fileSaveDir = new File(uploadFilePath);                                                        //Sebi
+        if(!fileSaveDir.exists()){                                                                          //Sebi
+            fileSaveDir.mkdirs();                                                                           //Sebi
+        }                                                                                                   //Sebi
+        
+        File fileToSave = new File(uploadFilePath + File.separator + fileName);                             //Sebi
+        Files.copy(fileInputStream, fileToSave.toPath(), StandardCopyOption.REPLACE_EXISTING);              //Sebi
+        
+        
+        
         request.setAttribute("SuccesfulUploadedCV","You have successfully loaded your CV");                 //Sebi
-//        //response.sendRedirect(request.getContextPath() + "--------------------------");
+        //response.sendRedirect(request.getContextPath() + "--------------------------");
         request.getRequestDispatcher("/WEB-INF/pages/myAccount/myAccount.jsp").forward(request, response);  //Sebi
     }
 
