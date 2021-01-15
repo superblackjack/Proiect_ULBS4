@@ -32,7 +32,7 @@ public class UserDetails {
         this.position = position;
         this.curriculum = curriculum;
     }
-    
+
     public Integer getId() {
         return id;
     }

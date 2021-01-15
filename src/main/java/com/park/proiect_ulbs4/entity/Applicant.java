@@ -1,7 +1,6 @@
 package com.park.proiect_ulbs4.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,14 +34,14 @@ public class Applicant implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_JOB")
     private Job idJob;
-    
+
     @JoinColumn(name = "ID_USER")
     @ManyToOne(fetch = FetchType.LAZY)
     private User idUser;
 
     private static final long serialVersionUID = 1L;
     @Id
-    
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Temporal(TemporalType.DATE)
@@ -73,7 +70,6 @@ public class Applicant implements Serializable {
     public void setIdUser(User idUser) {
         this.idUser = idUser;
     }
-
 
     public Date getDataAplicarii() {
         return dataAplicarii;

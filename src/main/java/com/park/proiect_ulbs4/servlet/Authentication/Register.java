@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.park.proiect_ulbs4.servlet.Authentication;
 
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.UserBean;
-import com.park.proiect_ulbs4.entity.User;
 import com.park.proiect_ulbs4.util.PasswordUtil;
 import java.io.IOException;
 import java.util.List;
@@ -44,10 +38,10 @@ public class Register extends HttpServlet {
         String position = request.getParameter("position");
         String curriculum = request.getParameter("curriculum");
         String passwordSha256 = PasswordUtil.convertToSha256(password);
-        
-        nume = nume.substring(0,1).toUpperCase() + nume.substring(1).toLowerCase();
-        prenume = prenume.substring(0,1).toUpperCase() + prenume.substring(1).toLowerCase();
-        
+
+        nume = nume.substring(0, 1).toUpperCase() + nume.substring(1).toLowerCase();
+        prenume = prenume.substring(0, 1).toUpperCase() + prenume.substring(1).toLowerCase();
+
         boolean existInDB = false;
         List<UserDetails> totiUserii = userBean.getAllUsers();
 
@@ -58,14 +52,12 @@ public class Register extends HttpServlet {
         }
         if (!existInDB) {
             userBean.createUser(nume, prenume, email, passwordSha256, position, curriculum);
-            request.setAttribute("SuccesfulRegister","You have successfully registered");
-            //response.sendRedirect(request.getContextPath() + "/Login");
+            request.setAttribute("SuccesfulRegister", "You have successfully registered");
             request.getRequestDispatcher("/WEB-INF/pages/authentication/login.jsp").forward(request, response);
         } else {
             request.setAttribute("message", "You already have an account created with this email");
             request.getRequestDispatcher("/WEB-INF/pages/authentication/register.jsp").forward(request, response);
         }
-        //response.sendRedirect(request.getContextPath() + "/Login");
     }
 
     public String getServletInfo() {

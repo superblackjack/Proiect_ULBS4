@@ -6,8 +6,8 @@ import java.io.Serializable;
  *
  * @author Sebi
  */
-public class CvDetails implements Serializable{
-    
+public class CvDetails implements Serializable {
+
     private Integer id;
     private String filename;
     private String fileType;
@@ -19,7 +19,7 @@ public class CvDetails implements Serializable{
         this.fileType = fileType;
         this.fileContent = fileContent;
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -35,6 +35,5 @@ public class CvDetails implements Serializable{
     public byte[] getFileContent() {
         return fileContent;
     }
-    
-    
+
 }

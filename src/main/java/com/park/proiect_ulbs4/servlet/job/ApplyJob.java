@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.park.proiect_ulbs4.servlet.job;
 
 import com.park.proiect_ulbs4.common.JobDetails;
@@ -29,35 +24,33 @@ public class ApplyJob extends HttpServlet {
 
     @Inject
     ApplicantBean applicantBean;
- 
+
     @Inject
     JobBean jobBean;
-    
+
     @Inject
     UserBean userBean;
-   
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         int jobId = Integer.parseInt(request.getParameter("id"));
         JobDetails job = jobBean.findByID(jobId);
         request.setAttribute("jobApply", job);
-        
+
         request.getRequestDispatcher("/WEB-INF/pages/job/applyJob.jsp").forward(request, response);
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
+
     }
 
-    
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

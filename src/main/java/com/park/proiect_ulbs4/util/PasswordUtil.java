@@ -24,17 +24,4 @@ public class PasswordUtil {
         }
         return null;
     }
-    
-    public static String convertToSha1(String password) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-            messageDigest.update(password.getBytes());
-            byte[] digest = messageDigest.digest();
-            String result = new BigInteger(1, digest).toString(16);
-            return result;
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(PasswordUtil.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
 }

@@ -1,7 +1,6 @@
 package com.park.proiect_ulbs4.ejb;
 
 import com.park.proiect_ulbs4.common.ApplicantDetails;
-import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.entity.Applicant;
 import com.park.proiect_ulbs4.entity.Job;
 import com.park.proiect_ulbs4.entity.User;
@@ -36,7 +35,6 @@ public class ApplicantBean {
     public void createApplicant(User idUser, Job idJob, Date dataAplicarii) {
         LOG.info("createApplicant");
         Applicant applicant = new Applicant();
-        //applicant.setId(id); 
         applicant.setIdUser(idUser);
         applicant.setIdJob(idJob);
         applicant.setDataAplicarii(dataAplicarii);
@@ -74,14 +72,4 @@ public class ApplicantBean {
             em.remove(applicant);
         }
     }
-//    public void createApplicant(Integer id, UserDetails user, Job job, Date dataAplicarii) {
-//        LOG.info("createApplicant");
-//        Applicant applicant = new Applicant();
-//        applicant.setId(id);
-//        applicant.setIdUser(user);
-//        applicant.setIdJob(job);
-//        applicant.setDataAplicarii(dataAplicarii);
-//
-//        em.persist(applicant);
-//    }
 }

@@ -151,7 +151,7 @@ public class UserBean {
         CV cv = cvs.get(0);
         return new CvDetails(cv.getId(), cv.getFilename(), cv.getFileType(), cv.getFileContent());
     }
-    
+
     public String obtainCV(Integer userId, String nume, String prenume) {
         URL s = this.getClass().getProtectionDomain().getCodeSource().getLocation();
         String p = s.getPath();
@@ -170,9 +170,9 @@ public class UserBean {
         }
         //return returnat;
         File file = new File(p);
-        if(file.exists()){
+        if (file.exists()) {
             return returnat;
-        }else{
+        } else {
             return "#";
         }
     }

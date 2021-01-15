@@ -20,16 +20,16 @@ public class CVs extends HttpServlet {
 
     @Inject
     UserBean userBean;
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CVs</title>");            
+            out.println("<title>Servlet CVs</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CVs at " + request.getContextPath() + "</h1>");
@@ -41,15 +41,13 @@ public class CVs extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
         Integer userId = Integer.parseInt(request.getParameter("id"));
         CvDetails cv = userBean.findCvByUserId(userId);
-        if(cv != null){
+        if (cv != null) {
             response.setContentType(cv.getFileType());
             response.setContentLength(cv.getFileContent().length);
             response.getOutputStream().write(cv.getFileContent());
-        }
-        else{
+        } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
     }
@@ -57,7 +55,6 @@ public class CVs extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
     }
 
     @Override

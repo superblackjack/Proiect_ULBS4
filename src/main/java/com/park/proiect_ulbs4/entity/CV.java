@@ -25,11 +25,11 @@ public class CV implements Serializable {
     private String filename;
     private String fileType;
     private byte[] fileContent;
-    
+
     @OneToOne
     @JoinColumn(name = "USER_KEY2")
     private User user;
-    
+
     public Integer getId() {
         return id;
     }
@@ -69,7 +69,7 @@ public class CV implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -94,5 +94,5 @@ public class CV implements Serializable {
     public String toString() {
         return "com.park.proiect_ulbs4.entity.CV[ id=" + id + " ]";
     }
-    
+
 }

@@ -22,41 +22,40 @@ import javax.servlet.http.HttpServletResponse;
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = {"AdminRole"}))
 @WebServlet(name = "EditJob", urlPatterns = {"/Jobs/Update"})
 public class EditJob extends HttpServlet {
-    
-@Inject
-UserBean userBean;
 
-@Inject
-JobBean jobBean;
+    @Inject
+    UserBean userBean;
+
+    @Inject
+    JobBean jobBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         List<UserDetails> users = userBean.getAllUsers();
-        request.setAttribute("users",users);
-        
+        request.setAttribute("users", users);
+
         int jobId = Integer.parseInt(request.getParameter("id"));
         JobDetails job = jobBean.findByID(jobId);
         request.setAttribute("job", job);
-        
+
         request.getRequestDispatcher("/WEB-INF/pages/job/editJob.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String post = request.getParameter("post");
         String descriere = request.getParameter("descriere");
         int userId = Integer.parseInt(request.getParameter("user_id"));
         int jobId = Integer.parseInt(request.getParameter("job_id"));
-        
-        jobBean.updateJob(jobId,post,descriere,userId);
-        
-        response.sendRedirect(request.getContextPath()+ "/Jobs");
-    }
 
+        jobBean.updateJob(jobId, post, descriere, userId);
+
+        response.sendRedirect(request.getContextPath() + "/Jobs");
+    }
 
     @Override
     public String getServletInfo() {

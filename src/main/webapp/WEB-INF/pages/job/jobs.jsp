@@ -78,7 +78,7 @@
                         </c:if>
 
                         <c:if test="${pageContext.request.isUserInRole('ClientRole')}">  
-                            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Apply?id=${job.id}" role="button">View Job</a>
+                            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Apply?id=${job.id}" role="button">Apply</a>
                         </c:if>  
 
                         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">  

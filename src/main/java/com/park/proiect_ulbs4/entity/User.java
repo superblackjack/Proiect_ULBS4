@@ -1,10 +1,6 @@
 package com.park.proiect_ulbs4.entity;
 
-import java.io.File;
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Basic;
@@ -14,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,7 +29,7 @@ public class User implements Serializable {
     @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    public Integer id;
+    private Integer id;
 
     private String nume;
 
@@ -54,7 +49,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "idUser")
     private Collection<Applicant> aplicanti;
-    
+
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CV cv;
 
@@ -129,7 +124,7 @@ public class User implements Serializable {
     public void setCurriculum(String curriculum) {
         this.curriculum = curriculum;
     }
-    
+
     public CV getCv() {
         return cv;
     }
@@ -147,7 +142,6 @@ public class User implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof User)) {
             return false;
         }

@@ -1,13 +1,10 @@
 package com.park.proiect_ulbs4.servlet.user;
 
-import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.JobBean;
 import com.park.proiect_ulbs4.ejb.UserBean;
-import com.park.proiect_ulbs4.entity.User;
 import com.park.proiect_ulbs4.util.PasswordUtil;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -36,9 +33,6 @@ public class EditUser extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        //List<JobDetails> jobs = jobBean.getAllJobs();
-        //request.setAttribute("jobs", jobs);
-
         int userId = Integer.parseInt(request.getParameter("id"));
         UserDetails user = userBean.findByID(userId);
         request.setAttribute("user", user);
@@ -58,15 +52,14 @@ public class EditUser extends HttpServlet {
         String position = request.getParameter("position");
         String curriculum = request.getParameter("curriculum");
         int userId = Integer.parseInt(request.getParameter("user_id"));
-        //int jobId = Integer.parseInt(request.getParameter("job_id"));
-        
+
         String userEmail = request.getParameter("user");
-        
+
         List<UserDetails> userbyEmail = userBean.getUserbyEmail(userEmail);
         String ceva = userbyEmail.get(0).getNume();
         request.setAttribute("ceva", ceva);
         String passwordSha256 = PasswordUtil.convertToSha256(password);
-        
+
         userBean.updateUser(userId, nume, prenume, email, passwordSha256, position, curriculum);
 
         response.sendRedirect(request.getContextPath() + "/Users");
