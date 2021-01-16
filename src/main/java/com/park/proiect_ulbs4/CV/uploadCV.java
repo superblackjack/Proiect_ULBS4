@@ -49,10 +49,6 @@ public class uploadCV extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Integer userId = Integer.parseInt(request.getParameter("id"));
-        UserDetails user = userBean.findByID(userId);
-        request.setAttribute("user", user);
-
         request.getRequestDispatcher("/WEB-INF/pages/myAccount/myAccount.jsp").forward(request, response);
     }
 

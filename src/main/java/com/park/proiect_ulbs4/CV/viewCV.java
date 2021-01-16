@@ -30,9 +30,6 @@ public class viewCV extends HttpServlet {
 
         String pdfPath = userBean.obtainCV(user.getId(), user.getNume(), user.getPrenume());
 
-        HttpSession session = request.getSession();
-        session.setAttribute("CVPATH2", pdfPath);
-
         RequestDispatcher dispatcher = null;
 
         dispatcher = request.getServletContext().getRequestDispatcher(pdfPath);

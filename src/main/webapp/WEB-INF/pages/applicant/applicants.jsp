@@ -51,10 +51,6 @@
                             <input type="checkbox" name="applicant_ids" value="${applicant.id}" />
                         </div>
                     </c:if>
-                    <h2>Ba ${CVPATH}
-                    </h2>
-                    <h2>Tu ${CVPATH2}
-                    </h2>
                     <div class="col-lg-2 ">
                         <div class="text-pages">
                             ${applicant.idUser.getNume()} ${applicant.idUser.getPrenume()}
