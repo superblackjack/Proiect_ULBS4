@@ -21,7 +21,7 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/Users">Users</a>
                 </li>
             </c:if>
-            <c:if test = "${pageContext.request.isUserInRole('AdminRole','Recrutor','GeneralDirector','DepartamentDirector','HumanResourcesDirector')}">
+            <c:if test = "${pageContext.request.isUserInRole('AdminRole'||'Recrutor'||'GeneralDirector'||'DepartamentDirector'||'HumanResourcesDirector')}">
                 <li class="nav-item ${activePage eq 'Applicants' ? ' active' : ''}">
                     <a class="nav-link" href="${pageContext.request.contextPath}/Applicants">Applicants</a>
                 </li>
