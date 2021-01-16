@@ -105,3 +105,39 @@ body{
     padding-bottom: 5px;
     padding-top: 5px;
 }
+.apply{
+    padding: 10px 50px !important;
+}
+.upload-cv {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.upload-cv div {
+    width: 350px;
+    height: 200px;
+    border: 2px dashed #41d5fd;
+}
+.upload-cv #uploadCVPreview {
+    color: #41d5fd;
+    font-size: 14px;
+    line-height: 24px;
+}
+.upload-cv input {
+    cursor: pointer;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0px;
+    text-align: right;
+    top: 0px;
+    z-index: 1;
+}
+.tabel-aplicanti{
+    padding-right: 100px !important;
+    padding-left: 100px !important;
+}

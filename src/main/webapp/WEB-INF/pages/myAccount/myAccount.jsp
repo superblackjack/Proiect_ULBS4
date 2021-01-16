@@ -10,30 +10,45 @@
 
 <t:pageTemplate pageTitle = "My Account">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
-    <div class="row mt-lg-5  pt-lg-5">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-            <h1 class="title-pages">${userCurent.getNume()} ${userCurent.getPrenume()}</h1>
-            <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data" action="${pageContext.request.contextPath}/uploadCV">
-                <div class="mb-lg-3">
-                    <label class="text-color" for="file">Upload your CV</label>
-                </div>
-                <div class="mb-lg-3">
-                    <input type="file" name="file" required>
-                    <div class="invalid-feedback">
-                        CV is required.
+    <div class="container-fluid">
+        <div class="row mt-lg-5  pt-lg-5">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 text-center">
+                <h1 class="title-pages">${userCurent.getNume()} ${userCurent.getPrenume()}</h1>
+                <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data" action="${pageContext.request.contextPath}/uploadCV">
+                    <div class="mb-lg-3">
+                        <label class="text-color" for="file">Upload your CV</label>
                     </div>
-                </div>
-                <hr class="mb-4">
-                <input type="hidden" name="curentUserId" value="${userCurent.getId()}">
-                <input type="hidden" name="curentJobId" value="${jobApply.id}">
-                <button class="btn btn-primary btn-lg btn-block mt-lg-4" type="submit">Upload</button>
-            </form>
-        </div>
-        <div class="col-lg-4"></div>
-    </div>   
+                    <div class="mb-lg-3">
+                        <div class="upload-cv">
+                            <div class="text-center">
+                                <span id="uploadCVPreview" class="vm">Incarca un CV</span>
+                            </div>
+                            <input type="file" name="file" id="uploadCVInput" />
+                        </div>
+                        <div class="invalid-feedback">
+                            CV is required.
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <input type="hidden" name="curentUserId" value="${userCurent.getId()}">
+                    <input type="hidden" name="curentJobId" value="${jobApply.id}">
+                    <button class="btn btn-primary btn-lg btn-block mt-lg-4" type="submit">Upload</button>
+                </form>
+            </div>
+            <div class="col-lg-4"></div>
+        </div> 
+    </div>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script>
+        $('#uploadCVInput').on('change', function () {
+            var fileName = $(this).val().split('\\').pop();
+            $('#uploadCVPreview').text(fileName);
+            $('.upload-cv #uploadCVPreview').show();
+        });
+
+
+
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict';

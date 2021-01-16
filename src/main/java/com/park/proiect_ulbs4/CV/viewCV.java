@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Sebi
  */
-@WebServlet(name = "viewCV", urlPatterns = {"/viewCV"})
+@WebServlet(name = "CV", urlPatterns = {"/viewCV"})
 public class viewCV extends HttpServlet {
 
     @Inject

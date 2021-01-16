@@ -12,14 +12,14 @@
 <t:pageTemplate pageTitle="Applicants">
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" />
     <form method="POST" action="${pageContext.request.contextPath}/Applicants"> 
-        <div class="container mt-lg-5 pt-lg-5">
+        <div class="container-fluid tabel-aplicanti mt-lg-5 pt-lg-5">
             <div class="row mb-lg-4">
                 <div class="col-lg-8">
                     <h1 class="title-pages">Applicants</h1>
                 </div>
                 <div class="col-lg-4 text-right">
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit" name="situation" value="1"> Accept Applicants</button>
+                        <button class="btn btn-success btn-lg ml-lg-4" type="submit" name="situation" value="1"> Accept Applicants</button>
                     </c:if>
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
                         <button class="btn btn-danger btn-lg ml-lg-4" type="submit" name="situation" value="0"> Refuse Applicants</button>
@@ -37,10 +37,10 @@
                 <div class="col-lg-3">
                     <label class="text-pages text-size ml-lg-3" for="email">POST SI DESCRIERE</label>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                     <label class="text-pages text-size ml-lg-2" for="email">DATA APLICARII</label>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                     <label class="text-pages text-size ml-lg-2" for="email">CV APLICANT</label>
                 </div>
             </div>              
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-lg-2">
                         <div class="text-pages">                         
-                            <a class="nav-link" href="${pageContext.request.contextPath}/viewCV?id=${applicant.idUser.id}">View CV</a>  
+                            <a class="nav-link" href="${pageContext.request.contextPath}/viewCV?id=${applicant.idUser.id}" target="_blank">View CV</a>  
                         </div>          
                     </div>
                     <input type="hidden" name="UserIdOnClick" value="${applicant.idUser.getId()}">

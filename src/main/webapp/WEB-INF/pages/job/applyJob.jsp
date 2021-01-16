@@ -12,21 +12,12 @@
     <jsp:include page="/WEB-INF/pages/menu/menu.jsp" /> 
     <div>
         <form method="POST" action="${pageContext.request.contextPath}/Applicant/Create">
-            <div class="container mt-lg-5  pt-lg-5">
-                <div class="row mb-lg-4">
-                    <div class="col-lg-8">
-                        <h1 class="title-pages"> ${jobApply.post} </h1>
-                    </div>
-                </div>
-                <div class="row mb-lg-4">
-                    <div class="col-lg-8">
-                        <h2> ${jobApply.descriere} </h2>
-                    </div>
-                </div>
-
+            <div class="container text-center mt-lg-5  pt-lg-5">
+                <h1 class="title-pages mb-lg-3"> ${jobApply.post} </h1>
+                <h2 class="mb-lg-5"> ${jobApply.descriere} </h2>
                 <input type="hidden" name="curentUserId" value="${userCurent.getId()}">
                 <input type="hidden" name="curentJobId" value="${jobApply.id}">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Apply</button>
+                <button class="btn btn-primary btn-lg apply" type="submit">Apply</button>
             </div>
         </form>
     </div>
