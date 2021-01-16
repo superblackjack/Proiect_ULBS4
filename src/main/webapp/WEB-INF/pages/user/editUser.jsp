@@ -50,12 +50,11 @@
                         <c:if test="${user.position == 'ADMINISTRATOR'}">
                             <option value="ADMINISTRATOR">Administrator</option>
                             <option value="CLIENT">Client</option>
-                            <option value="RECRUTOR">Recrutor</option>
-                            <option value="GENERALDIRECTOR">General Director</option>
-                            <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
-                            <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
                         </c:if>
-                        
+                        <c:if test="${user.position == 'CLIENT'}">
+                            <option value="CLIENT">Client</option>
+                            <option value="ADMINISTRATOR">Administrator</option>
+                        </c:if>
                     </select>
                     <div class="invalid-feedback">
                         Please select a position.

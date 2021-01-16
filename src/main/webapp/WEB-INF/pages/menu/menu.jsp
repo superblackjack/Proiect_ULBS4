@@ -21,7 +21,7 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/Users">Users</a>
                 </li>
             </c:if>
-            <c:if test = "${pageContext.request.isUserInRole('AdminRole','Recrutor','GeneralDirector','DepartamentDirector','HumanResourcesDirector')}">
+            <c:if test = "${pageContext.request.isUserInRole('AdminRole')}">
                 <li class="nav-item ${activePage eq 'Applicants' ? ' active' : ''}">
                     <a class="nav-link" href="${pageContext.request.contextPath}/Applicants">Applicants</a>
                 </li>
@@ -32,7 +32,13 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/ContactUs">Contact Us</a>
             </li>
         </ul>
-       
+        <c:if test = "${pageContext.request.isUserInRole('ClientRole')}">
+            <ul class="navbar-nav ml-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/uploadCV?id=${userCurent.getId()}">My Account</a>
+                </li>
+            </ul>
+        </c:if>
         <ul class="navbar-nav ml-lg-3">
             <li class="nav-item">
                 <c:choose>
