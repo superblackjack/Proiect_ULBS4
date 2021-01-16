@@ -23,7 +23,8 @@
                     </div>
                 </div>
                 <hr class="mb-4">
-                <input type="hidden" name="user_id" value="${userCurent.getId()}">
+                <input type="hidden" name="curentUserId" value="${userCurent.getId()}">
+                <input type="hidden" name="curentJobId" value="${jobApply.id}">
                 <button class="btn btn-primary btn-lg btn-block mt-lg-4" type="submit">Upload</button>
             </form>
         </div>

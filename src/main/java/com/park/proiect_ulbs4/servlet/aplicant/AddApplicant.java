@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-
 /**
  *
  * @author Sebi
@@ -60,37 +59,14 @@ public class AddApplicant extends HttpServlet {
         Job jobCurent = new Job();
         User user_Id = new User();
         Date date = new Date();
-
+       
         user_Id.setId(Integer.parseInt(request.getParameter("curentUserId")));
         jobCurent.setId(Integer.parseInt(request.getParameter("curentJobId")));
 
         applicantBean.createApplicant(user_Id, jobCurent, date);
-        String uploadFilePath = request.getServletContext().getRealPath("../../src/main/webapp/cv");
-        HttpSession session = request.getSession();
-        UserDetails user = (UserDetails) session.getAttribute("userCurent");
-        Part o = request.getPart("file");
-        InputStream fileInputStream = o.getInputStream();
-        String fileName = user.getId().toString() + "_" + user.getNume() + "_" + user.getPrenume() + ".pdf";
-
-        Integer userId = user.getId();
-
-        Part filePart = request.getPart("file");
-        String fileType = filePart.getContentType();
-        long fileSize = filePart.getSize();
-        byte[] fileContent = new byte[(int) fileSize];
-        filePart.getInputStream().read(fileContent);
-
-        userBean.addCVToUser(userId, fileName, fileType, fileContent);
-
-        File fileSaveDir = new File(uploadFilePath);
-        if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdirs();
-        }
-
-        File fileToSave = new File(uploadFilePath + File.separator + fileName);
-        Files.copy(fileInputStream, fileToSave.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        
-        response.sendRedirect(request.getContextPath() + "/Jobs");
+      
+        request.getRequestDispatcher("/WEB-INF/pages/myAccount/myAccount.jsp").forward(request, response);
+   
     }
 
     @Override
