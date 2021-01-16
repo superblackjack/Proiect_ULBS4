@@ -17,6 +17,8 @@
             <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data" action="${pageContext.request.contextPath}/uploadCV">
                 <div class="mb-lg-3">
                     <label class="text-color" for="file">Upload your CV</label>
+                </div>
+                <div class="mb-lg-3">
                     <input type="file" name="file" required>
                     <div class="invalid-feedback">
                         CV is required.

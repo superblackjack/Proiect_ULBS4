@@ -71,17 +71,12 @@
                             <fmt:formatDate value="${applicant.dataAplicarii}" pattern="dd-MM-yyyy"/>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <div class="text-pages">                         
                             <a class="nav-link" href="${pageContext.request.contextPath}/viewCV?id=${applicant.idUser.id}">View CV</a>  
                         </div>          
                     </div>
                     <input type="hidden" name="UserIdOnClick" value="${applicant.idUser.getId()}">
-                    <div class="col-lg-2 text-right">
-                        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Applicants/View?id=${applicant.id}" role="button">View Applicant</a>
-                        </c:if>
-                    </div>
                 </div>
             </c:forEach>
     </form>

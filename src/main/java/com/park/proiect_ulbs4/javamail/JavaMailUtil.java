@@ -33,8 +33,8 @@ public class JavaMailUtil {
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-        String myAccountEmail = "kombuchaguys@gmail.com";
-        String password = "kidsonshrooms";
+        String myAccountEmail = "proiect.ulbs4@gmail.com";
+        String password = "ProiectULBS4";
 
         Session session = Session.getInstance(properties);
 

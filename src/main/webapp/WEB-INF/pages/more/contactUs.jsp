@@ -22,7 +22,7 @@
                         <div class="col-lg-4">
                             <div class="index-right-content text-pages">
                                 <div class="vm">
-                                    <img class="mb-lg-5" src="${pageContext.request.contextPath}/img/locatie.JPG" />
+                                    <a href="https://www.google.com/maps/place/Facultatea+de+Inginerie/@45.7898412,24.1462968,15z/data=!4m5!3m4!1s0x0:0xc168eca1cc733c84!8m2!3d45.7898412!4d24.1462968"> <img class="mb-lg-5" src="${pageContext.request.contextPath}/img/locatie.JPG" /></a>
                                     <h4 class="mb-lg-4">Sibiu, Judetul Sibiu</h4>
                                     <p> Strada Emil Cioran 4,<br>
                                         Municipiul Sibiu, Judetul Sibiu,<br>
