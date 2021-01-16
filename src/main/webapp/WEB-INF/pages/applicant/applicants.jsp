@@ -19,10 +19,10 @@
                 </div>
                 <div class="col-lg-4 text-right">
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}" role="button">Accept Applicants</a>
+                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit" name="situation" value="1"> Accept Applicants</button>
                     </c:if>
                     <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit"> Refuse Applicants</button>
+                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit" name="situation" value="0"> Refuse Applicants</button>
                     </c:if>
                 </div>
             </div>

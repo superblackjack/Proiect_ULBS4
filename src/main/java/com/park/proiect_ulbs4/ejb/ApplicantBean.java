@@ -4,13 +4,23 @@ import com.park.proiect_ulbs4.common.ApplicantDetails;
 import com.park.proiect_ulbs4.entity.Applicant;
 import com.park.proiect_ulbs4.entity.Job;
 import com.park.proiect_ulbs4.entity.User;
+import com.park.proiect_ulbs4.javamail.JavaMailUtil;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -72,4 +82,8 @@ public class ApplicantBean {
             em.remove(applicant);
         }
     }
+    
+    
+   
+    
 }

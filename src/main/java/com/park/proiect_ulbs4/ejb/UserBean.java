@@ -47,10 +47,10 @@ public class UserBean {
         }
     }
 
-    public List<UserDetails> getUserById() {
+    public List<UserDetails> getUserById(int id) {
         LOG.info("getUserById");
         try {
-            Query query = em.createQuery("SELECT u FROM User u WHERE u.id = :id");
+            Query query = em.createQuery("SELECT u FROM User u WHERE u.id = :id").setParameter("id", id);
             List<User> users = (List<User>) query.getResultList();
             return copyUsersToDetails(users);
         } catch (Exception ex) {

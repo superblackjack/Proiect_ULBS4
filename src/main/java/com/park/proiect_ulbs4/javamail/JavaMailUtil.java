@@ -14,47 +14,40 @@ import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 /**
  *
  * @author SuperBlackJack
  */
 public class JavaMailUtil {
-    public static void sendMail(String recepient) throws Exception{
+
+    public static void sendMail(String recepient, String mesaj) {
         Properties properties = new Properties();
-        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
-     
-        String myAccountEmail ="kombuchaguys@gmail.com";
-        String password = "kidsonshrooms";
-        
-        Session session = Session.getInstance(properties, new Authenticator() {
-        @Override
-        protected PasswordAuthentication getPasswordAuthentication(){
-            return new PasswordAuthentication(myAccountEmail, password);
-        }
-    });
-        
-        Message message = prepareMessage(session, myAccountEmail, recepient);
-        Transport.send(message);
-    }
-        
+        properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient) {
+        String myAccountEmail = "kombuchaguys@gmail.com";
+        String password = "kidsonshrooms";
+
+        Session session = Session.getInstance(properties);
+
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("Primul mail din java");
-            message.setText("cf asta e un test \n lol rand nou");
-            return message;
-        } catch (Exception ex) {
-            Logger.getLogger(JavaMailUtil.class.getName()).log(Level.SEVERE, null, ex);
+            message.setSubject("Job apply");
+            message.setText(mesaj);
+            Transport.send(message, myAccountEmail, password);
+        } catch (MessagingException ex) {
+            throw new RuntimeException(ex);
         }
-        return null;
+
     }
 }
