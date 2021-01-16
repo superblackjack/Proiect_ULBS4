@@ -1,5 +1,6 @@
 package com.park.proiect_ulbs4.CV;
 
+import com.park.proiect_ulbs4.common.JobDetails;
 import com.park.proiect_ulbs4.common.UserDetails;
 import com.park.proiect_ulbs4.ejb.UserBean;
 import java.io.File;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import com.park.proiect_ulbs4.ejb.JobBean;
 
 /**
  *
@@ -28,6 +30,9 @@ public class uploadCV extends HttpServlet {
 
     @Inject
     UserBean userBean;
+    
+    @Inject
+    JobBean jobBean;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -80,8 +85,9 @@ public class uploadCV extends HttpServlet {
         File fileToSave = new File(uploadFilePath + File.separator + fileName);
         Files.copy(fileInputStream, fileToSave.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
-        request.setAttribute("SuccesfulUploadedCV", "You have successfully loaded your CV");
-        request.getRequestDispatcher("/WEB-INF/pages/myAccount/myAccount.jsp").forward(request, response);
+        //request.setAttribute("SuccesfulUploadedCV", "You have successfully loaded your CV");
+        //request.getRequestDispatcher("/WEB-INF/pages/job/applyJob.jsp").forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/Jobs");
     }
 
     @Override

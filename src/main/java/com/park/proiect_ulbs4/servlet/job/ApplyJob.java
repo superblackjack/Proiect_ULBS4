@@ -38,14 +38,14 @@ public class ApplyJob extends HttpServlet {
         int jobId = Integer.parseInt(request.getParameter("id"));
         JobDetails job = jobBean.findByID(jobId);
         request.setAttribute("jobApply", job);
-
+        
         request.getRequestDispatcher("/WEB-INF/pages/job/applyJob.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.sendRedirect(request.getContextPath() + "/AddApplicant");
     }
 
     @Override
