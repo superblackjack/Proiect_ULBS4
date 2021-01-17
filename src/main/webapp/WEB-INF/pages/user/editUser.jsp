@@ -55,6 +55,46 @@
                             <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
                             <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
                         </c:if>
+                        <c:if test="${user.position == 'CLIENT'}">
+                            <option value="ADMINISTRATOR">Administrator</option>
+                            <option value="CLIENT">Client</option>
+                            <option value="RECRUTOR">Recrutor</option>
+                            <option value="GENERALDIRECTOR">General Director</option>
+                            <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
+                            <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
+                        </c:if>
+                        <c:if test="${user.position == 'RECRUTOR'}">
+                            <option value="ADMINISTRATOR">Administrator</option>
+                            <option value="CLIENT">Client</option>
+                            <option value="RECRUTOR">Recrutor</option>
+                            <option value="GENERALDIRECTOR">General Director</option>
+                            <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
+                            <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
+                        </c:if>
+                        <c:if test="${user.position == 'GENERALDIRECTOR'}">
+                            <option value="ADMINISTRATOR">Administrator</option>
+                            <option value="CLIENT">Client</option>
+                            <option value="RECRUTOR">Recrutor</option>
+                            <option value="GENERALDIRECTOR">General Director</option>
+                            <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
+                            <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
+                        </c:if>
+                        <c:if test="${user.position == 'DEPARTAMENTDIRECTOR'}">
+                            <option value="ADMINISTRATOR">Administrator</option>
+                            <option value="CLIENT">Client</option>
+                            <option value="RECRUTOR">Recrutor</option>
+                            <option value="GENERALDIRECTOR">General Director</option>
+                            <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
+                            <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
+                        </c:if>
+                        <c:if test="${user.position == 'HUMANRESOURCESDIRECTOR'}">
+                            <option value="ADMINISTRATOR">Administrator</option>
+                            <option value="CLIENT">Client</option>
+                            <option value="RECRUTOR">Recrutor</option>
+                            <option value="GENERALDIRECTOR">General Director</option>
+                            <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
+                            <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
+                        </c:if>
                         
                     </select>
                     <div class="invalid-feedback">

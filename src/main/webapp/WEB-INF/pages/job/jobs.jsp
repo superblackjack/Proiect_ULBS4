@@ -24,16 +24,16 @@
                     </div>
                 </c:if>
                 <div class="col-lg-4 text-right">
-                    <c:if test="${pageContext.request.isUserInRole('AdminRole'||'DepartamentDirector')}">
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('DepartamentDirector') or pageContext.request.isUserInRole('HumanResourcesDirector')}">
                         <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Jobs/Create" role="button">Add Jobs</a>
                     </c:if>
-                    <c:if test="${pageContext.request.isUserInRole('AdminRole'||'DepartamentDirector')}">
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('DepartamentDirector') or pageContext.request.isUserInRole('HumanResourcesDirector')}">
                         <button class="btn btn-danger btn-lg ml-lg-4" type="submit"> Delete Jobs</button>
                     </c:if>
                 </div>
             </div>
             <div class="row mb-lg-4">
-                <c:if test="${pageContext.request.isUserInRole('AdminRole'||'DepartamentDirector')}">
+                <c:if test="${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('Recrutor') or pageContext.request.isUserInRole('GeneralDirector') or pageContext.request.isUserInRole('DepartamentDirector') or pageContext.request.isUserInRole('HumanResourcesDirector')}">
                     <div class="col-lg-1"></div>  
                 </c:if>
                 <div class="col-lg-3 ">
@@ -50,7 +50,7 @@
             </div>
             <c:forEach var="job" items="${jobs}" varStatus="status">
                 <div class="row mb-lg-3">
-                    <c:if test="${pageContext.request.isUserInRole('AdminRole'||'DepartamentDirector')}">
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('DepartamentDirector') or pageContext.request.isUserInRole('HumanResourcesDirector')}">
                         <div class="col-lg-1"> 
                             <input type="checkbox" name="job_ids" value="${job.id}" />
                         </div>
@@ -81,7 +81,7 @@
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Apply?id=${job.id}" role="button">Apply</a>
                         </c:if>                                 
 
-                        <c:if test="${pageContext.request.isUserInRole('AdminRole'||'DepartamentDirector')}">  
+                        <c:if test="${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('DepartamentDirector') or pageContext.request.isUserInRole('HumanResourcesDirector')}">  
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Jobs/Update?id=${job.id}" role="button">Edit Job</a>
                         </c:if>
                     </div>

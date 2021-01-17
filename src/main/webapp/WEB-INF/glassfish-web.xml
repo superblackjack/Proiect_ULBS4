@@ -31,5 +31,9 @@
     <role-name>ClientRole</role-name>
     <group-name>ADMINISTRATOR</group-name>
     <group-name>CLIENT</group-name>
+    <group-name>DEPARTAMENTDIRECTOR</group-name>
+    <group-name>GENERALDIRECTOR</group-name>
+    <group-name>HUMANRESOURCESDIRECTOR</group-name>
+    <group-name>RECRUTOR</group-name>
   </security-role-mapping>
 </glassfish-web-app>

@@ -49,6 +49,11 @@
                         <option value="">Choose...</option>
                         <option value="ADMINISTRATOR">Administrator</option>
                         <option value="CLIENT">Client</option>
+                        <option value="RECRUTOR">Recrutor</option>
+                        <option value="GENERALDIRECTOR">General Director</option>
+                        <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
+                        <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
+
                     </select>
                     <div class="invalid-feedback">
                         Please select a position.

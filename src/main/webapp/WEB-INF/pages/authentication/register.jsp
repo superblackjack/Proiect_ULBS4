@@ -52,9 +52,7 @@
                             <div class="text-color">
                                 <label for="position">Position</label>
                             </div>
-                            <select class="form-select d-block w-100 mb-lg-3" name="position" id="position" required>
-                                <option value="CLIENT">Client</option>
-                            </select>
+                            <input type="hidden" name="position" value="CLIENT">
                             <button class="btn btn-lg btn-primary btn-block mb-lg-4" type="submit">Register</button>
                             <div class="login-text">
                                 <a>Do you already have an account?</a>
