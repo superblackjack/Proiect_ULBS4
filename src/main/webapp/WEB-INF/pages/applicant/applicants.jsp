@@ -18,10 +18,10 @@
                     <h1 class="title-pages">Applicants</h1>
                 </div>
                 <div class="col-lg-4 text-right">
-                    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                        <button class="btn btn-success btn-lg ml-lg-4" type="submit" name="situation" value="1"> Accept Applicants</button>
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('Recrutor')  or pageContext.request.isUserInRole('HumanResourcesDirector')}">
+                        <button class="btn btn-danger btn-lg ml-lg-4" type="submit" name="situation" value="1"> Accept Applicants</button>
                     </c:if>
-                    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('Recrutor')  or pageContext.request.isUserInRole('HumanResourcesDirector')}">
                         <button class="btn btn-danger btn-lg ml-lg-4" type="submit" name="situation" value="0"> Refuse Applicants</button>
                     </c:if>
                 </div>
@@ -46,7 +46,7 @@
             </div>              
             <c:forEach var="applicant" items="${applicants}" varStatus="status">
                 <div class="row mb-lg-3">
-                    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                    <c:if test="${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('Recrutor')  or pageContext.request.isUserInRole('HumanResourcesDirector')}">
                         <div class="col-lg-1"> 
                             <input type="checkbox" name="applicant_ids" value="${applicant.id}" />
                         </div>

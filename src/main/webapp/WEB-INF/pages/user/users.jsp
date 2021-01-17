@@ -62,10 +62,25 @@
                             ${user.email}  
                         </div>          
                     </div>
-                    <div class="col-lg-2 ">
-                        <div class="text-pages">
-                            ${user.position}
-                        </div>
+                    <div class="col-lg-2 text-pages">
+                        <c:if test="${user.position == 'ADMINISTRATOR'}">
+                            Administrator
+                        </c:if>
+                        <c:if test="${user.position == 'CLIENT'}">
+                            Client
+                        </c:if>
+                        <c:if test="${user.position == 'RECRUTOR'}">
+                            Recrutor
+                        </c:if>
+                        <c:if test="${user.position == 'DEPARTAMENTDIRECTOR'}">
+                            Department Director
+                        </c:if>
+                        <c:if test="${user.position == 'HUMANRESOURCESDIRECTOR'}">
+                            Human Resources Director
+                        </c:if>
+                        <c:if test="${user.position == 'GENERALDIRECTOR'}">
+                            General Director
+                        </c:if>
                     </div>
                     <div class="col-lg-2 text-right">
                         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">

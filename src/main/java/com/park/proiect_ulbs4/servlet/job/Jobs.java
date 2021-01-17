@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sebi
  */
-@DeclareRoles({"AdminRole", "ClientRole"})
+@DeclareRoles({"AdminRole", "ClientRole","HumanResourcesDirector"})
 @WebServlet(name = "Jobs", urlPatterns = {"/Jobs"})
 public class Jobs extends HttpServlet {
 

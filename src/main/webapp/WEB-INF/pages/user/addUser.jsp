@@ -44,19 +44,24 @@
                             Password is required.
                         </div>
                     </div>
-                    <div class="mb-lg-3">
-                        <label class="text-color" for="position">Position</label>
-                        <select class="form-select d-block w-100 mb-lg-4" name="position" id="position" required>
-                            <option value="">Choose...</option>
-                            <option value="ADMINISTRATOR">Administrator</option>
-                            <option value="CLIENT">Client</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a position.
-                        </div>
-                    </div>
-                    <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block mt-lg-4" type="submit">Save</button>
+            </div>
+            <div class="mb-lg-3">
+                <label class="text-color" for="position">Position</label>
+                <select class="form-select d-block w-100 mb-lg-4" name="position" id="position" required>
+                    <option value="">Choose...</option>
+                    <option value="ADMINISTRATOR">Administrator</option>
+                    <option value="CLIENT">Client</option>
+                    <option value="RECRUTOR">Recrutor</option>
+                    <option value="GENERALDIRECTOR">General Director</option>
+                    <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
+                    <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
+
+                </select>
+                <div class="invalid-feedback">
+                    Please select a position.
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block mt-lg-4" type="submit">Save</button>
                 </form>
             </div>
             <div class="col-lg-4"></div>

@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
 <glassfish-web-app error-url="">
-    <class-loader delegate="true"/>
-    <jsp-config>
-        <property name="keepgenerated" value="true">
-            <description>Keep a copy of the generated servlet class' java code.</description>
-        </property>
-    </jsp-config>
-    <security-role-mapping>
-        <role-name>AdminRole</role-name>
-        <group-name>ADMINISTRATOR</group-name>
-    </security-role-mapping>
-    <security-role-mapping>
-        <role-name>ClientRole</role-name>
-        <group-name>ADMINISTRATOR</group-name>
-        <group-name>CLIENT</group-name>
-    </security-role-mapping>
+  <security-role-mapping>
+    <role-name>Recrutor</role-name>
+    <group-name>RECRUTOR</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>GeneralDirector</role-name>
+    <group-name>GENERALDIRECTOR</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>DepartamentDirector</role-name>
+    <group-name>DEPARTAMENTDIRECTOR</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>HumanResourcesDirector</role-name>
+    <group-name>HUMANRESOURCESDIRECTOR</group-name>
+  </security-role-mapping>
+  <class-loader delegate="true"/>
+  <jsp-config>
+    <property name="keepgenerated" value="true">
+      <description>Keep a copy of the generated servlet class' java code.</description>
+    </property>
+  </jsp-config>
+  <security-role-mapping>
+    <role-name>AdminRole</role-name>
+    <group-name>ADMINISTRATOR</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>ClientRole</role-name>
+    <group-name>ADMINISTRATOR</group-name>
+    <group-name>CLIENT</group-name>
+    <group-name>DEPARTAMENTDIRECTOR</group-name>
+    <group-name>GENERALDIRECTOR</group-name>
+    <group-name>HUMANRESOURCESDIRECTOR</group-name>
+    <group-name>RECRUTOR</group-name>
+  </security-role-mapping>
 </glassfish-web-app>

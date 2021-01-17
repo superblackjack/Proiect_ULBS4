@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sebi
  */
-@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"AdminRole"}))
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"AdminRole","Recrutor","GeneralDirector","DepartamentDirector","HumanResourcesDirector"}))
 @WebServlet(name = "EditUser", urlPatterns = {"/Users/Update"})
 public class EditUser extends HttpServlet {
 

@@ -16,12 +16,12 @@
             <li class="nav-item ${activePage eq 'Jobs' ? ' active' : ''}">
                 <a class="nav-link" href="${pageContext.request.contextPath}/Jobs">Jobs</a>
             </li>
-            <c:if test = "${pageContext.request.isUserInRole('AdminRole')}">
+            <c:if test = "${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('Recrutor') or pageContext.request.isUserInRole('GeneralDirector') or pageContext.request.isUserInRole('DepartamentDirector') or pageContext.request.isUserInRole('HumanResourcesDirector') }">
                 <li class="nav-item ${activePage eq 'Users' ? ' active' : ''}">
                     <a class="nav-link" href="${pageContext.request.contextPath}/Users">Users</a>
                 </li>
             </c:if>
-            <c:if test = "${pageContext.request.isUserInRole('AdminRole')}">
+            <c:if test = "${pageContext.request.isUserInRole('AdminRole') or pageContext.request.isUserInRole('Recrutor') or pageContext.request.isUserInRole('GeneralDirector') or pageContext.request.isUserInRole('DepartamentDirector') or pageContext.request.isUserInRole('HumanResourcesDirector')}">
                 <li class="nav-item ${activePage eq 'Applicants' ? ' active' : ''}">
                     <a class="nav-link" href="${pageContext.request.contextPath}/Applicants">Applicants</a>
                 </li>
