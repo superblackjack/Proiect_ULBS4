@@ -44,50 +44,50 @@
                             Password is required.
                         </div>
                     </div>
-            </div>
-            <div class="mb-lg-3">
-                <label class="text-color" for="position">Position</label>
-                <select class="form-select d-block w-100 mb-lg-4" name="position" id="position" required>
-                    <option value="">Choose...</option>
-                    <option value="ADMINISTRATOR">Administrator</option>
-                    <option value="CLIENT">Client</option>
-                    <option value="RECRUTOR">Recrutor</option>
-                    <option value="GENERALDIRECTOR">General Director</option>
-                    <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
-                    <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
+                    <div class="mb-lg-3">
+                        <label class="text-color" for="position">Position</label>
+                        <select class="form-select d-block w-100 mb-lg-4" name="position" id="position" required>
+                            <option value="">Choose...</option>
+                            <option value="ADMINISTRATOR">Administrator</option>
+                            <option value="CLIENT">Client</option>
+                            <option value="RECRUTOR">Recrutor</option>
+                            <option value="GENERALDIRECTOR">General Director</option>
+                            <option value="DEPARTAMENTDIRECTOR">Departament Director</option>
+                            <option value="HUMANRESOURCESDIRECTOR">Human Resources Director</option>
 
-                </select>
-                <div class="invalid-feedback">
-                    Please select a position.
-                </div>
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block mt-lg-4" type="submit">Save</button>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a position.
+                        </div>
+                        <hr class="mb-4">
+                        <button class="btn btn-primary btn-lg btn-block mt-lg-4" type="submit">Save</button>
                 </form>
             </div>
-            <div class="col-lg-4"></div>
         </div>
+        <div class="col-lg-4"></div>
     </div>
+</div>
 
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict';
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
 
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
 
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-    </script>
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 </t:pageTemplate>
