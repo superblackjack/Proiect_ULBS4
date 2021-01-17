@@ -49,9 +49,6 @@
                             <div class="invalid-feedback">
                                 Password is required.
                             </div>
-                            <div class="text-color">
-                                <label for="position">Position</label>
-                            </div>
                             <input type="hidden" name="position" value="CLIENT">
                             <button class="btn btn-lg btn-primary btn-block mb-lg-4" type="submit">Register</button>
                             <div class="login-text">
